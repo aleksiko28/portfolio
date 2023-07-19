@@ -1,0 +1,25 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^1.0.2",
+    "@fontsource/unbounded": "^4.5.0",
+    "astro": "^1.6.12",
+    "gsap": "^3.12.2",
+    "node-sass": "^8.0.0",
+    "svelte": "^3.53.1",
+    "svelte-preprocess": "^4.10.7"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}

@@ -1,0 +1,44 @@
+---
+import Personals from "../components/Personals.svelte"
+import Timeline from "../components/Timeline.svelte"
+import SectionCard from "./SectionCard.astro"
+
+const years = ["Present", "2021"]
+---
+
+<SectionCard title="Work">
+  <div class="content">
+    <Timeline years={years} />
+    <div>
+      <h2>Metso (2021 - present)</h2>
+      <p>
+        I initially started as a trainee in the spring of 2021, and after that I
+        completed my master's thesis for Metso. The topic for my thesis was
+        "Technology agnostic design systems", and as part of the thesis, I
+        created a completely new component library based on Web Components that
+        has become the main component system, replacing the legacy React one.
+        <p>
+          Most teams have started using the component library I created
+          alongside the existing React one, with a plan to fully migrate to the
+          newer one in the future. Users have provided extremely positive
+          feedback, and its technology agnosticism ensures it will allow any web
+          application to utilize it.
+        </p>
+      </p>
+      <p>
+        I worked as a frontend developer in the design system team, initially
+        using React and TypeScript to build and maintain a component library
+        that was in the company's internal use for over a hundred developers.
+      </p>
+    </div>
+  </div>
+</SectionCard>
+
+<style>
+  .content {
+    display: flex;
+    padding: 2rem;
+    line-height: 1.5;
+    gap: 3rem;
+  }
+</style>

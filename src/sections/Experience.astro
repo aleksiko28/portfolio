@@ -1,0 +1,174 @@
+---
+import Card from "../components/Card.svelte"
+import SectionCard from "./SectionCard.astro"
+---
+
+<SectionCard title="Experience">
+  <div class="content">
+    <h2>Languages</h2>
+    <div class="languages">
+      <div>
+        <h3>Spoken and written</h3>
+        <ul role="list" class="exp-card-grid">
+          <Card
+            title="Finnish"
+            image="https://flagicons.lipis.dev/flags/4x3/fi.svg"
+            body="Native"
+            rating={5}
+          />
+          <Card
+            title="English"
+            image="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+            body="Fluent, bilingual"
+            rating={5}
+          />
+          <Card
+            title="Swedish"
+            image="https://flagicons.lipis.dev/flags/4x3/se.svg"
+            body="Limited working proficiency"
+            rating={2}
+          />
+          <Card
+            title="Spanish"
+            image="https://flagicons.lipis.dev/flags/4x3/es.svg"
+            body="Elementary proficiency"
+            rating={1}
+          />
+        </ul>
+      </div>
+      <div>
+        <h3>Programming</h3>
+        <ul role="list" class="exp-card-grid">
+          <Card
+            title="TypeScript"
+            image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+            body="Multiple years of real-world experience"
+            rating={5}
+          />
+          <Card
+            title="Python"
+            image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            body="School and personal projects"
+            rating={4}
+          />
+          <Card
+            title="Java/Scala"
+            imageBackground={true}
+            image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+            body="Extensive school experience"
+            rating={3}
+          />
+          <Card
+            title="C"
+            image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
+            body="Limited school and personal experience"
+            rating={2}
+          />
+        </ul>
+      </div>
+    </div>
+    <h2>Ways of working</h2>
+    <ul role="list" class="exp-card-grid">
+      <Card
+        title="Git"
+        body="Years of professional experience"
+        rating={5}
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+      />
+      <Card
+        title="Bash"
+        imageBackground={true}
+        rating={4}
+        body="Years of professional experience"
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
+      />
+      <Card
+        title="Azure"
+        rating={4}
+        body="Years of professional experience"
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+      /><Card
+        title="GitHub"
+        rating={4}
+        body="Years of professional experience"
+        imageBackground
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+      />
+    </ul>
+    <h2>Frameworks <sup>* used for this page</sup></h2>
+    <ul role="list" class="exp-card-grid">
+      <Card
+        title="React"
+        body="Years of professional experience"
+        rating={5}
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+      />
+      <Card
+        title="Vue"
+        rating={3}
+        body="Experience with versions 3+"
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+      />
+      <Card
+        title="Svelte"
+        rating={3}
+        asterisk
+        body="Personal projects"
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg"
+      />
+      <Card
+        title="Astro"
+        imageBackground
+        asterisk
+        rating={3}
+        body="Personal projects"
+        image="https://raw.githubusercontent.com/github/explore/5cc0a03a302ec862c4aeac2a22a513ae31c35432/topics/astro/astro.png"
+      />
+      <Card
+        title="Angular"
+        rating={1}
+        body="Familiarity with fundamentals"
+        image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+      />
+    </ul>
+  </div>
+</SectionCard>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  :is(h1, h2, h3, h4, h5, h6, p) {
+    color: $body-text-color;
+  }
+  .content {
+    padding: 2rem;
+    line-height: 1.5;
+    gap: 1rem;
+  }
+
+  sup {
+    font-size: 0.75rem;
+  }
+
+  .languages {
+    display: flex;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+  .exp-card-grid {
+    align-items: flex-start;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  @media only screen and (max-width: 1000px) {
+    .languages {
+      flex-direction: column;
+    }
+  }
+</style>

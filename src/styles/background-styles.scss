@@ -1,0 +1,70 @@
+.blue-gradient {
+  background: radial-gradient(
+    circle at bottom,
+    rgba(9, 60, 98, 0.35) 0%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+
+.purple-haze {
+  background: rgba(128, 0, 128, 0.1) center / 200px 200px round;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-height: 100%;
+}
+
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  display: block;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+}
+
+.stars {
+  z-index: 1;
+  background: black url("/images/stars.png") repeat top center;
+  min-height: 100%;
+}
+
+.twinkling {
+  z-index: 1;
+  background: transparent url("/images/twinkle-mask.png") repeat top center;
+  animation: move-twinkle-back 200s linear infinite;
+}
+
+.clouds {
+  z-index: 2;
+  background: transparent url("/images/clouds.png") repeat top center;
+  animation: move-clouds-back 200s linear infinite;
+}
+
+@keyframes move-twinkle-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-clouds-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 0;
+  }
+}

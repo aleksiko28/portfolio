@@ -1,0 +1,20 @@
+$button-background-color: #a3cef1;
+$button-color: #274c77;
+$background-color: #3a405a;
+$primary-color: rgb(72, 191, 227);
+$secondary-color: #5e60ce;
+$body-text-color: white;
+$subtle-body-text-color: lightgray;
+
+$card-background-color: black;
+
+$accent: rgb(72, 191, 227);
+$accent-gradient: linear-gradient(
+  45deg,
+  $primary-color,
+  $secondary-color 40%,
+  white 75%
+);
+
+$card-title-color: $accent;
+$card-subtitle-color: white;

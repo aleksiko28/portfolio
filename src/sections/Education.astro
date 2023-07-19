@@ -1,0 +1,97 @@
+---
+import Personals from "../components/Personals.svelte"
+import Timeline from "../components/Timeline.svelte"
+import SectionCard from "./SectionCard.astro"
+
+const years = ["2022", "2020", "2016", "2013"]
+---
+
+<SectionCard title="Education">
+  <div class="content">
+    <div class="padding">
+      <Timeline years={years} />
+      <div class="education-list">
+        <h3>
+          Completed master's in Computer Science <span class="text-gradient"
+            >@</span
+          > Aalto University
+        </h3>
+        <ul class="internal-list">
+          <li>
+            Thesis on "Technology agnostic design systems" <a href="#work"
+              >for Metso</a
+            >
+          </li>
+          <li>Minor in Security and Cloud Computing</li>
+        </ul>
+        <h3>
+          Completed bachelors's in Computer Science <span class="text-gradient"
+            >@</span
+          > Aalto University
+        </h3>
+        <ul class="internal-list">
+          <li>
+            Thesis on "Improving the efficiency of image annotation for computer
+            vision"
+          </li>
+          <li>Minor in Data Science</li>
+        </ul>
+        <h3>
+          Graduated from high school, started <span class="text-gradient"
+            >@</span
+          >
+          Aalto University
+        </h3>
+        <ul class="internal-list">
+          <li>Baccalaureate grade mean: E</li>
+          <li>Subjects: math, Finnish, English, chemistry, physics</li>
+        </ul>
+        <h3>
+          Started high school <span class="text-gradient">@</span> Tikkurilan lukio
+        </h3>
+      </div>
+    </div>
+  </div>
+</SectionCard>
+
+<style lang="scss">
+  .content {
+    display: flex;
+    width: 100%;
+    .padding {
+      width: 100%;
+      display: flex;
+      padding: 2rem;
+      padding-top: 2.5rem;
+      line-height: 1.5;
+      gap: 3rem;
+    }
+    h2,
+    h3 {
+      font-weight: bold;
+      margin: 0;
+    }
+    .education-list {
+      margin-top: -8px;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      flex-basis: 100%;
+      width: 100%;
+      flex-direction: column;
+      .internal-list {
+        list-style-type: square;
+        padding-left: 2rem;
+        gap: 0.25rem;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .timeline {
+      display: none;
+    }
+  }
+</style>

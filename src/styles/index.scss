@@ -1,0 +1,43 @@
+@forward "./variables/colors";
+@forward "./variables/radii";
+@forward "./variables/spacings";
+@forward "./variables/transitions";
+
+/** Global classes */
+
+.text-gradient {
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+}
+
+/** Default styles */
+
+:root {
+  --accent: 72, 191, 227;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    #5e60ce 30%,
+    white 60%
+  );
+}
+html {
+  font-family: "Unbounded", system-ui, sans-serif;
+}
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+a {
+  color: unset;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}

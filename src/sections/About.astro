@@ -1,0 +1,55 @@
+---
+import Personals from "../components/Personals.svelte"
+import SectionCard from "./SectionCard.astro"
+---
+
+<SectionCard title="About">
+  <div class="content">
+    <div>
+      <h2>
+        I am a developer who specializes in <span class="text-gradient"
+          >frontend development</span
+        >
+      </h2>
+      <p>
+        I would describe myself as someone with a keen eye for design and a
+        genuine passion for delivering exceptional user experiences. With years
+        of experience in the industry, I have honed my skills in crafting
+        intuitive and visually appealing web applications.
+      </p>
+      <p>
+        My ability to empathize with users and understand their needs allows me
+        to design interfaces that are both visually appealing and highly
+        intuitive. My journey as a frontend developer began at my first
+        programming job working on a design system at <a href="#work">Metso</a>.
+      </p>
+      <p>
+        My eagerness to learn and my <a href="#education"
+          >comprehensive educational background</a
+        > allow me to quickly pick up new languages, technologies, and practices.
+        For this portfolio page I wanted to learn something new, and so I created
+        it using Astro and Svelte, two bleeding-edge frontend frameworks that were
+        good fits for this use case.
+      </p>
+    </div>
+    <Personals />
+  </div>
+</SectionCard>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+  .content {
+    display: flex;
+    padding: 2rem;
+    p {
+      line-height: 1.5;
+    }
+    gap: 1rem;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .content {
+      flex-direction: column-reverse;
+    }
+  }
+</style>
