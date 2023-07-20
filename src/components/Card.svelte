@@ -10,7 +10,7 @@
   import Rating from "./Rating.svelte"
 </script>
 
-<li class="link-card hidden" data-type="info">
+<li class="link-card" data-type="info">
   <a href={href !== "" ? href : undefined}>
     <span class:asterisk>*</span>
     <div class="card-content">
