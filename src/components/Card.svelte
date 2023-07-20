@@ -20,9 +20,9 @@
         <Rating value={rating} />
       </div>
     </div>
-    <div class="title-and-desc">
+    <div class="title-and-desc info">
       <div class="padding">
-        <h4>
+        <h4 class="text-gradient">
           {title}
         </h4>
         <p>
@@ -35,15 +35,24 @@
 
 <style lang="scss">
   @import "../styles/index.scss";
+
+  $duration: 350ms;
+  $timing-fn: ease;
+  $turquoise: #1abc9c;
+  $wet-asphalt: #34495e;
+  $midnight-blue: #2c3e50;
+  $clouds: #ecf0f1;
   a {
     position: relative;
+    aspect-ratio: 1;
     span {
+      pointer-events: none;
       position: absolute;
       display: none;
       color: white;
-      font-size: 20px;
-      right: 12px;
-      top: 4px;
+      font-size: 1.25rem;
+      right: 0.75rem;
+      top: 0.25rem;
       &.asterisk {
         display: block;
       }
@@ -52,16 +61,13 @@
   .link-card {
     align-self: flex-start;
     list-style: none;
-    transition: all $transition-medium ease;
     display: flex;
-    padding: 0.15rem;
     backdrop-filter: blur(3px);
-    background-color: rgba(28, 28, 28, 0.4);
 
     &.hidden {
       opacity: 0;
       filter: blur(5px);
-      transform: translateX(-100%);
+      transform: translateX(-75%);
     }
 
     &.visible {
@@ -74,13 +80,15 @@
       position: relative;
       display: flex;
       flex-direction: column;
-
-      justify-content: space-between;
-      transition: all 0.7s ease;
+      height: 100%;
+      justify-content: center;
+      pointer-events: none;
+      padding: 1rem 1.3rem;
 
       .image-rating {
         display: flex;
         flex-direction: column;
+        align-items: center;
         position: relative;
         .experience-image {
           &.imageBackground {
@@ -97,55 +105,266 @@
     }
   }
 
-  .link-card:hover {
-    transform: scale(1.05);
-  }
-
   .link-card > a {
     width: 100%;
     position: relative;
     text-decoration: none;
-    padding: 1rem 1.3rem;
     overflow: hidden;
-    border-radius: 0.35rem;
-    border: 1px solid rgba(var(--accent), 25%);
+    outline: 1px solid rgba(var(--accent), 25%);
 
     &:hover .title-and-desc {
       bottom: 0;
     }
-
-    .title-and-desc {
-      width: 100%;
-      position: absolute;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      backdrop-filter: blur(3px);
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 999;
-      gap: 0.5rem;
-      flex-direction: column;
-      transition: all 0.5s ease;
-      z-index: 0;
-      left: 0;
-      bottom: -125%;
-      overflow: hidden;
-      .padding {
-        padding: 1rem;
-      }
-    }
   }
   h4 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin-bottom: 0.25rem;
-    color: $accent;
     transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
   p {
     margin: 0;
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     margin-bottom: 0.5rem;
     color: $card-subtitle-color;
+  }
+
+  /* the important bits */
+  li {
+    perspective: 400px;
+  }
+
+  .info {
+    // hide-initial-state
+    transform: rotate3d(1, 0, 0, 90deg);
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  .in-top {
+    a {
+      .info {
+        transform-origin: 50% 0%;
+        animation: in-top $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+  .in-right {
+    a {
+      .info {
+        transform-origin: 100% 0%;
+        animation: in-right $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+  .in-bottom {
+    a {
+      .info {
+        transform-origin: 50% 100%;
+        animation: in-bottom $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+  .in-left {
+    a {
+      .info {
+        transform-origin: 0% 0%;
+        animation: in-left $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+
+  .out-top {
+    a {
+      .info {
+        transform-origin: 50% 0%;
+        animation: out-top $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+  .out-right {
+    a {
+      .info {
+        transform-origin: 100% 50%;
+        animation: out-right $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+  .out-bottom {
+    a {
+      .info {
+        transform-origin: 50% 100%;
+        animation: out-bottom $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+  .out-left {
+    a {
+      .info {
+        transform-origin: 0% 0%;
+        animation: out-left $duration $timing-fn 0ms 1 forwards;
+      }
+    }
+  }
+
+  @keyframes in-top {
+    from {
+      transform: rotate3d(-1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+  @keyframes in-right {
+    from {
+      transform: rotate3d(0, -1, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+  @keyframes in-bottom {
+    from {
+      transform: rotate3d(1, 0, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+  @keyframes in-left {
+    from {
+      transform: rotate3d(0, 1, 0, 90deg);
+    }
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+
+  @keyframes out-top {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(-1, 0, 0, 104deg);
+    }
+  }
+  @keyframes out-right {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(0, -1, 0, 104deg);
+    }
+  }
+  @keyframes out-bottom {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(1, 0, 0, 104deg);
+    }
+  }
+  @keyframes out-left {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    to {
+      transform: rotate3d(0, 1, 0, 104deg);
+    }
+  }
+
+  /* you can ignore this ones */
+  ul {
+    padding: 0;
+    margin: 0 0 50px;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  li {
+    position: relative;
+    float: left;
+    padding: 0;
+    list-style: none;
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      color: transparentize(#fff, 0.1);
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: transparentize(#fff, 0.2);
+    }
+
+    .normal {
+      width: 100%;
+      height: 100%;
+      background-color: $clouds;
+      color: transparentize($wet-asphalt, 0.4);
+      box-shadow: inset 0 2px 20px darken($clouds, 2);
+      text-align: center;
+      font-size: 50px;
+      line-height: 200px;
+
+      svg {
+        pointer-events: none;
+        width: 50px;
+        path {
+          fill: transparentize($wet-asphalt, 0.8);
+        }
+      }
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #fff;
+  }
+
+  h1 {
+    margin: 0 auto 5px;
+    text-align: center;
+  }
+
+  h3 {
+    font-family: "Bree Serif", serif;
+  }
+
+  header {
+    font-family: "Bree Serif", serif;
+    text-align: center;
+    margin: 50px 0 25px;
+    color: $wet-asphalt;
+
+    p {
+      margin: 0;
+      color: transparentize($wet-asphalt, 0.6);
+    }
   }
 </style>

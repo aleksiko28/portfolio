@@ -61,6 +61,7 @@
 </div>
 
 <style lang="scss">
+  @import "../styles/index.scss";
   #trailer {
     border-radius: 50%;
     width: 16px;
@@ -70,7 +71,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    z-index: 10000;
+    z-index: $z-index-tooltip;
 
     pointer-events: none;
     opacity: 0;

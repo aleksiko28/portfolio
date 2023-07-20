@@ -133,12 +133,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100% - 64px);
-    z-index: 99999;
+    height: calc(100% - 4rem);
+    z-index: $z-index-drawer;
     width: 100%;
     transform: translateX(100%);
     height: 100%;
-    top: 64px;
+    top: 4rem;
     transition: transform $transition-fast ease;
     backdrop-filter: blur(5px);
     background: linear-gradient(
@@ -164,7 +164,7 @@
     position: sticky;
     top: 0;
     opacity: 0;
-    height: 48px;
+    height: 3rem;
     display: flex;
     padding: $padding-s 2rem;
     justify-content: center;
@@ -178,7 +178,7 @@
       opacity: 1;
       background-color: rgba(0, 0, 0, 1);
     }
-    z-index: 999;
+    z-index: $z-index-navbar;
     transition: 0.3s all ease;
     .navbar-content {
       display: flex;
@@ -187,8 +187,8 @@
       justify-content: space-between;
       align-items: center;
       .menu-icon {
-        font-size: 1.5rem;
-        color: white;
+        font-size: 2.5rem;
+        color: $body-text-color;
         display: none;
         &:hover {
           cursor: pointer;
@@ -204,7 +204,7 @@
   }
   @media only screen and (max-width: 1000px) {
     nav {
-      height: 64px;
+      height: 4rem;
       padding: 0 2rem;
     }
   }

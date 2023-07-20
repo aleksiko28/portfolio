@@ -1,5 +1,9 @@
+<script>
+  import portrait from "../assets/portrait.png"
+</script>
+
 <div class="personals">
-  <img class="portrait" src="/images/portrait.png" alt="Portrait" />
+  <img class="portrait" src={portrait.src} alt="Portrait" />
   <div class="socials-and-contacts">
     <div class="contacts">
       <h3 class="text-gradient">Contact information</h3>
