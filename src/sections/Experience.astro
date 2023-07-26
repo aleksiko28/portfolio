@@ -1,38 +1,154 @@
 ---
-import { slide } from "svelte/types/runtime/transition";
-import Card from "../components/Card.svelte"
 import SectionCard from "./SectionCard.astro"
-
+import SkillList from "../components/SkillList.svelte";
 
 interface skill {
-  title: string
-  image: string
-  body: string
-  rating: number
-  imageBackground?: boolean
-  asterisk?: boolean
-}
+    title: string
+    image: string
+    body: string
+    rating: number
+    imageBackground?: boolean
+    asterisk?: boolean
+  }
 
-const skills: skill[] = [
-  { title: "Finnish", image: "https://flagicons.lipis.dev/flags/4x3/fi.svg", body: "Native", rating: 5 },
-  { title: "English", image: "https://flagicons.lipis.dev/flags/4x3/gb.svg", body: "Fluent, Bilingual", rating: 5 },
-  { title: "Swedish", image: "https://flagicons.lipis.dev/flags/4x3/se.svg", body: "Limited working proficiency", rating: 2 },
-  { title: "Spanish", image: "https://flagicons.lipis.dev/flags/4x3/es.svg", body: "Elementary proficiency", rating: 1 },
-  { title: "TypeScript", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", body: "Multiple years of real-world experience", rating: 5 },
-  { title: "Python", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", body: "Multiple years of real-world experience", rating: 5 },
-  { title: "Scala", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg", body: "Extensive school experience", rating: 4 },
-  { title: "Java", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", body: "Moderate school, personal experience", rating: 3, imageBackground: true },
-  { title: "C", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg", body: "Limited school and personal experience", rating: 2 },
-  { title: "Git", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", body: "Years of professional experience", rating: 5 },
-  { title: "Bash", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg", body: "Years of professional experience", rating: 4, imageBackground: true },
-  { title: "Azure", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", body: "Years of professional experience", rating: 4 },
-  { title: "GitHub", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", body: "Years of professional experience", rating: 4, imageBackground: true },
-  { title: "React", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", body: "Years of professional experience", rating: 5 },
-  { title: "Vue", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", body: "xperience with versions 3+", rating: 3 },
-  { title: "Svelte", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg", body: "Personal projects", rating: 3, asterisk: true },
-  { title: "Astro", image: "https://raw.githubusercontent.com/github/explore/5cc0a03a302ec862c4aeac2a22a513ae31c35432/topics/astro/astro.png", body: "Personal projects", rating: 3, imageBackground: true, asterisk: true },
-  { title: "Angular", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg", body: "Familiarity with fundamentals", rating: 1},
-]
+  export let skills: skill[] = [
+    {
+      title: "Finnish",
+      image: "https://flagicons.lipis.dev/flags/4x3/fi.svg",
+      body: "Native",
+      rating: 5,
+    },
+    {
+      title: "English",
+      image: "https://flagicons.lipis.dev/flags/4x3/gb.svg",
+      body: "Fluent, Bilingual",
+      rating: 5,
+    },
+    {
+      title: "Swedish",
+      image: "https://flagicons.lipis.dev/flags/4x3/se.svg",
+      body: "Limited working proficiency",
+      rating: 2,
+    },
+    {
+      title: "Spanish",
+      image: "https://flagicons.lipis.dev/flags/4x3/es.svg",
+      body: "Elementary proficiency",
+      rating: 1,
+    },
+    {
+      title: "TypeScript",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      body: "Multiple years of real-world experience",
+      rating: 5,
+    },
+    {
+      title: "Python",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      body: "Extensive school and personal experience",
+      rating: 4,
+    },
+    {
+      title: "Scala",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg",
+      body: "Extensive school experience",
+      rating: 4,
+    },
+    {
+      title: "Java",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+      body: "Moderate school, personal experience",
+      rating: 3,
+      imageBackground: true,
+    },
+    {
+      title: "C",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+      body: "Limited school and personal experience",
+      rating: 2,
+    },
+    {
+      title: "Git",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      body: "Years of professional experience",
+      rating: 5,
+    },
+    {
+      title: "Bash",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg",
+      body: "Years of professional experience",
+      rating: 4,
+      imageBackground: true,
+    },
+    {
+      title: "Azure",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+      body: "Years of professional experience",
+      rating: 4,
+    },
+    {
+      title: "GitHub",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      body: "Years of professional experience",
+      rating: 4,
+      imageBackground: true,
+    },
+    {
+      title: "React",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      body: "Years of professional experience",
+      rating: 5,
+    },
+    {
+      title: "Vue",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+      body: "Experience with versions 3+",
+      rating: 3,
+    },
+    {
+      title: "Svelte",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
+      body: "Personal projects",
+      rating: 3,
+      asterisk: true,
+    },
+    {
+      title: "Astro",
+      image:
+        "https://raw.githubusercontent.com/github/explore/5cc0a03a302ec862c4aeac2a22a513ae31c35432/topics/astro/astro.png",
+      body: "Personal projects",
+      rating: 3,
+      imageBackground: true,
+      asterisk: true,
+    },
+    {
+      title: "Angular",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+      body: "Familiarity with fundamentals",
+      rating: 1,
+    },
+    {
+      title: "Figma",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      body: "Professional and personal experience",
+      rating: 3,
+    },
+  ]
+
 ---
 
 <script>
@@ -73,20 +189,7 @@ nodes.forEach(node => new Item(node));
 
 <SectionCard title="Experience" appendix="* used in this page">
   <div class="content">
-      <ul role="list" class="exp-card-grid">
-        {skills.map(skill => {
-          return (
-            <Card
-              title={skill.title}
-              image={skill.image}
-              body={skill.body}
-              rating={skill.rating}
-              imageBackground={skill.imageBackground}
-              asterisk={skill.asterisk}
-            />
-          )
-        })}
-      </ul>
+     <SkillList client:visible skills={skills} />
   </div>
 </SectionCard>
 
@@ -96,14 +199,6 @@ nodes.forEach(node => new Item(node));
   .content {
     line-height: 1.5;
     width: 100%;
-    gap: 1rem;
-  }
-
-  .exp-card-grid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    padding: 0;
   }
 
 </style>

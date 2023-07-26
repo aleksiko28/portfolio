@@ -2,7 +2,11 @@
 @forward "./variables/radii";
 @forward "./variables/spacings";
 @forward "./variables/transitions";
+@forward "./variables/elevation";
 @forward "./variables/z-indeces";
+
+$body-font: "Unbounded", "Montserrat", "Segoe UI", "Roboto", system-ui,
+  sans-serif;
 
 /** Global classes */
 
@@ -30,8 +34,15 @@ html {
   font-family: "Unbounded", system-ui, sans-serif;
 }
 code {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
 }
 
 a {

@@ -91,11 +91,15 @@
   @import "../styles/index.scss";
 
   svg {
-    height: 2rem;
-    width: 3rem;
+    display: flex;
+    align-items: center;
+    height: 1.25rem;
+    width: 2.25rem;
     background: $accent-gradient;
     transition: background-position 0.5s ease;
     background-size: 200%;
+    border-radius: $border-radius-pill;
+    padding: 0.25rem;
     background-position: -2.5rem;
     &:hover {
       background-position: 0rem;

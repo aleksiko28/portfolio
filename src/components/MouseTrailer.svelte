@@ -36,17 +36,6 @@
     trailer.dataset.type = interacting ? interactable.dataset.type : ""
 
     if (interacting) {
-      const iconName = getTrailerClass(interactable.dataset.type)
-      icon.className = iconName
-      if (iconName.includes("info")) {
-        trailer.style.backgroundColor = "gray"
-        trailer.style.boxShadow =
-          "0 0 8px 2px #78a4eb, 0 0 6px 1.5px lightblue inset"
-      } else {
-        trailer.style.backgroundColor = "orange"
-        trailer.style.boxShadow =
-          "0 0 8px 2px yellow, 0 0 6px 1.5px yellow inset"
-      }
       trailer.style.opacity = 1
       document.body.style.cursor = "none"
     } else {
@@ -66,8 +55,9 @@
     border-radius: 50%;
     width: 16px;
     height: 16px;
-    background-color: orange;
-    box-shadow: 0 0 8px 2px yellow, 0 0 6px 1.5px yellow inset;
+    background-color: gray;
+    box-shadow: 0 0 8px 2px #78a4eb, 0 0 6px 1.5px lightblue inset;
+    color: black;
     position: fixed;
     left: 0px;
     top: 0px;

@@ -1,9 +1,12 @@
 <script>
   import portrait from "../assets/portrait.png"
+  import Button from "./Button.svelte"
 </script>
 
 <div class="personals">
-  <img class="portrait" src={portrait.src} alt="Portrait" />
+  <div class="portrait">
+    <img class="portrait" src={portrait.src} alt="Portrait" />
+  </div>
   <div class="socials-and-contacts">
     <div class="contacts">
       <h3 class="text-gradient">Contact information</h3>
@@ -18,7 +21,6 @@
       <span class="icon-text">
         <i class="fa-solid fa-location-dot" />
         <a
-          class="interactable"
           target="_blank"
           rel="noreferrer"
           href="https://goo.gl/maps/wKAkkxq9MADzzhiL8">Vantaa, Finland</a
@@ -26,12 +28,16 @@
       </span>
     </div>
     <div class="socials">
-      <a target="_blank" rel="noreferrer" href="https://linkedin.com">
-        <i class="fa-brands fa-linkedin interactable" />
-      </a>
-      <a target="_blank" rel="noreferrer" href="https://github.com/aleksiko28">
-        <i class="fa-brands fa-square-github interactable" />
-      </a>
+      <Button target="_blank" rel="noreferrer" href="https://linkedin.com">
+        LinkedIn <i class="fa-brands fa-linkedin" />
+      </Button>
+      <Button
+        target="_blank"
+        rel="noreferrer"
+        href="https://github.com/aleksiko28"
+      >
+        GitHub <i class="fa-brands fa-square-github" />
+      </Button>
     </div>
   </div>
 </div>
@@ -40,20 +46,33 @@
   @import "../styles/index.scss";
   .personals {
     height: 100%;
-    padding: 1rem;
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: flex-end;
     gap: 1.25rem;
 
     .portrait {
       backdrop-filter: blur(3px);
-      background: $accent-gradient;
+      position: relative;
+      -webkit-backdrop-filter: blur(3px);
       background-size: 400%;
       width: 8rem;
       height: 8rem;
       border-radius: 50%;
+      background-color: $background-color-button;
+      &::before {
+        content: "";
+        top: 50%;
+        left: 50%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        position: absolute;
+        border-radius: 50%;
+        background-color: hsla(257, 0%, 0%, 1);
+        transform: translate(-50%, -50%);
+      }
     }
     .socials-and-contacts {
       display: flex;
@@ -86,16 +105,12 @@
       }
       .socials {
         display: flex;
-        gap: 1.5rem;
-        font-size: 2.5rem;
+        gap: 1rem;
+        margin-bottom: 1rem;
         color: $primary-color;
         align-self: flex-end;
         i {
-          transition: transform $transition-fast ease;
-          &:hover {
-            cursor: pointer;
-            transform: translateY(-5%) scale(1.25);
-          }
+          font-size: 1.25rem;
         }
       }
     }
@@ -112,7 +127,7 @@
       }
 
       .socials-and-contacts {
-        gap: 0.5rem;
+        gap: 1.5rem;
         .contacts {
           width: 100%;
           align-items: flex-start;
@@ -123,6 +138,7 @@
         }
         .socials {
           align-self: flex-start;
+          margin: 0;
         }
       }
     }

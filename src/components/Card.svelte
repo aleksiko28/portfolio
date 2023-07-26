@@ -6,11 +6,12 @@
   export let image: string
   export let asterisk: boolean = false
   export let imageBackground: boolean = false
+  export let hidden: boolean = false
 
   import Rating from "./Rating.svelte"
 </script>
 
-<li class="link-card" data-type="info">
+<li class:hidden class="link-card">
   <a href={href !== "" ? href : undefined}>
     <span class:asterisk>*</span>
     <div class="card-content">
@@ -38,10 +39,13 @@
 
   $duration: 350ms;
   $timing-fn: ease;
-  $turquoise: #1abc9c;
-  $wet-asphalt: #34495e;
-  $midnight-blue: #2c3e50;
-  $clouds: #ecf0f1;
+
+  .hidden {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
   a {
     position: relative;
     aspect-ratio: 1;
@@ -50,7 +54,7 @@
       position: absolute;
       display: none;
       color: white;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       right: 0.75rem;
       top: 0.25rem;
       &.asterisk {
@@ -62,7 +66,6 @@
     align-self: flex-start;
     list-style: none;
     display: flex;
-    backdrop-filter: blur(3px);
 
     &.hidden {
       opacity: 0;
@@ -96,7 +99,7 @@
             border-radius: 50%;
             outline: 4px solid white;
           }
-          height: 3rem;
+          height: 2.5rem;
           object-fit: cover;
           margin-bottom: 1rem;
           align-self: center;
@@ -118,14 +121,13 @@
   }
   h4 {
     margin: 0;
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
-    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    line-height: 1.5;
+    font-size: 0.875rem;
   }
   p {
+    font-size: 0.75rem;
+    line-height: 1.5;
     margin: 0;
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
     color: $card-subtitle-color;
   }
 
@@ -145,7 +147,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 4px;
     pointer-events: none;
     background-color: rgba(0, 0, 0, 0.85);
   }
@@ -282,18 +283,6 @@
     }
   }
 
-  /* you can ignore this ones */
-  ul {
-    padding: 0;
-    margin: 0 0 50px;
-
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-  }
-
   li {
     position: relative;
     float: left;
@@ -304,67 +293,10 @@
       display: inline-block;
       vertical-align: top;
       text-decoration: none;
-      border-radius: 4px;
-    }
-
-    h3 {
-      margin: 0;
-      font-size: 16px;
-      color: transparentize(#fff, 0.1);
-    }
-
-    p {
-      font-size: 12px;
-      line-height: 1.5;
-      color: transparentize(#fff, 0.2);
-    }
-
-    .normal {
-      width: 100%;
-      height: 100%;
-      background-color: $clouds;
-      color: transparentize($wet-asphalt, 0.4);
-      box-shadow: inset 0 2px 20px darken($clouds, 2);
-      text-align: center;
-      font-size: 50px;
-      line-height: 200px;
-
-      svg {
-        pointer-events: none;
-        width: 50px;
-        path {
-          fill: transparentize($wet-asphalt, 0.8);
-        }
-      }
     }
   }
 
   * {
     box-sizing: border-box;
-  }
-
-  body {
-    background-color: #fff;
-  }
-
-  h1 {
-    margin: 0 auto 5px;
-    text-align: center;
-  }
-
-  h3 {
-    font-family: "Bree Serif", serif;
-  }
-
-  header {
-    font-family: "Bree Serif", serif;
-    text-align: center;
-    margin: 50px 0 25px;
-    color: $wet-asphalt;
-
-    p {
-      margin: 0;
-      color: transparentize($wet-asphalt, 0.6);
-    }
   }
 </style>

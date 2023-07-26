@@ -17,11 +17,6 @@ import "../styles/index.scss"
 ---
 
 <script>
-  /** import font awesome icons */
-  const script = document.createElement("script")
-  script.src = "https://kit.fontawesome.com/1ee8f271b9.js"
-  document.body.appendChild(script)
-
   const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       let elem = entry.target
@@ -44,16 +39,15 @@ import "../styles/index.scss"
   hiddenElements.forEach((el) => observer.observe(el))
 </script>
 
-<Layout title="Aleksi Koivu portfolio" />
+<Layout title="Aleksi Koivu" />
 
 <MouseTrailer client:only />
 
-<div style="min-height: 100vh">
+<div style="min-height: 125vh">
   <Background />
 </div>
 <main>
   <Header client:only />
-  <ScrollProgress client:only />
   <div class="content">
     <Title />
     <About />
@@ -69,6 +63,7 @@ import "../styles/index.scss"
   html {
     scroll-padding-top: 80px; /* height of sticky header */
     scroll-behavior: smooth;
+    /** scale everything based on viewport width */
     font-size: clamp(0.75rem, 0.625vw + 0.5625rem, 1rem);
   }
 
@@ -84,6 +79,7 @@ import "../styles/index.scss"
     margin: 0;
     overflow: auto;
     display: flex;
+    background: #121212;
   }
 
   main {
@@ -93,7 +89,7 @@ import "../styles/index.scss"
     padding-top: 0;
     height: 100%;
     opacity: 1;
-    z-index: 5;
+    z-index: $z-index-content;
     position: relative;
   }
 
@@ -108,7 +104,7 @@ import "../styles/index.scss"
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    max-width: 1100px;
+    max-width: 1160px;
   }
 
   h1 {

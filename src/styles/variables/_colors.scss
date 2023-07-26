@@ -1,20 +1,43 @@
-$button-background-color: #a3cef1;
-$button-color: #274c77;
 $background-color: #3a405a;
 $primary-color: rgb(72, 191, 227);
 $secondary-color: #5e60ce;
 $body-text-color: white;
+$body-text-color--hover: rgb(176, 176, 176);
 $subtle-body-text-color: lightgray;
 
 $card-background-color: black;
+$color-background-input: rgb(24, 24, 24);
+
+$background-color-button: rgba(255, 255, 255, 0.08);
+$color-button: $body-text-color;
 
 $accent: rgb(72, 191, 227);
+$accent-dim: rgba(72, 191, 227, 0.3);
 $accent-gradient: linear-gradient(
   45deg,
   $primary-color,
   $secondary-color 40%,
   white 75%
 );
+
+$accent-gradient-card: linear-gradient(
+  45deg,
+  $primary-color,
+  $secondary-color 40%,
+  black 75%
+);
+
+$color-background-gradient: radial-gradient(
+    at 89% 62%,
+    hsla(60, 0%, 0%, 1) 0px,
+    transparent 50%
+  ),
+  radial-gradient(at 7% 8%, hsla(40, 0%, 0%, 1) 0px, transparent 50%),
+  radial-gradient(at 89% 80%, hsla(352, 29%, 7%, 1) 0px, transparent 50%),
+  radial-gradient(at 16% 21%, hsla(174, 39%, 46%, 1) 0px, transparent 50%),
+  radial-gradient(at 71% 90%, hsla(225, 43%, 43%, 1) 0px, transparent 50%),
+  radial-gradient(at 87% 40%, hsla(191, 49%, 37%, 1) 0px, transparent 50%),
+  radial-gradient(at 38% 81%, hsla(266, 47%, 56%, 0.82) 0px, transparent 50%);
 
 $card-title-color: $accent;
 $card-subtitle-color: white;

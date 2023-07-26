@@ -14,10 +14,12 @@
         html.scrollHeight,
         html.offsetHeight
       )
-      const scrollPercentage =
-        (scrollDistance / (height - window.screen.height)) * 100
+      const scrollPercentage = Math.min(
+        (scrollDistance / (height - window.screen.height)) * 100,
+        100
+      )
       if (bar) {
-        bar.style.width = `${scrollPercentage}%`
+        bar.style.width = `calc(${scrollPercentage}% - 2rem)`
         if (document.scrollingElement.scrollTop > 300) {
           bar.style.opacity = "1"
         } else {
@@ -40,15 +42,16 @@
 
   .progress-bar-container {
     width: 100%;
+    position: relative;
     display: block;
     position: fixed;
-    top: 4rem;
     z-index: $z-index-progress-bar;
   }
   .progress-bar {
-    height: 0.125rem;
+    height: 0.075rem;
     width: 100%;
-    background: $accent-gradient;
+    background: $body-text-color;
     opacity: 0;
+    border-radius: $border-radius-pill;
   }
 </style>

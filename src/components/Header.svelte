@@ -1,27 +1,21 @@
 <script>
   import Logo from "./Logo.svelte"
+  import ScrollProgress from "./ScrollProgress.svelte"
+
   let shouldDim = false
   let isOpen = false
-  document.addEventListener("scroll", () => {
+  function checkScroll() {
     if (document.scrollingElement.scrollTop > 300) {
       shouldDim = true
     } else {
       shouldDim = false
     }
-  })
-  $: icon_class = isOpen
-    ? "fa-regular fa-close menu-icon"
-    : "fa-regular fa-bars menu-icon"
-  $: menu_class = isOpen ? "drawer-menu open" : "drawer-menu"
-
-  function toggleMenu() {
-    isOpen = !isOpen
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "auto"
-    }
   }
+  document.addEventListener("scroll", () => {
+    checkScroll()
+  })
+
+  checkScroll()
 </script>
 
 <nav class:isOpen class:shouldDim>
@@ -29,42 +23,37 @@
     <a href="#top">
       <Logo />
     </a>
-    <div class="desktop-list">
-      <ul>
-        <a class="anchor" href="#about">
-          <li><span><i class="fa-regular fa-address-card" /></span> About</li>
-        </a>
-        <a class="anchor" href="#experience">
-          <li><span><i class="fa-regular fa-star" /></span> Experience</li>
-        </a>
-        <a class="anchor" href="#work">
-          <li><span><i class="fa-regular fa-briefcase" /></span> Work</li>
-        </a>
-        <a class="anchor" href="#education">
-          <li><span><i class="fa-regular fa-school" /></span> Education</li>
-        </a>
-      </ul>
+    <ul>
+      <a class="anchor" href="#about">
+        <li>
+          <span><i class="fa-regular fa-address-card" /></span>
+          <span class="navbar-text">About</span>
+        </li>
+      </a>
+      <a class="anchor" href="#experience">
+        <li>
+          <span><i class="fa-regular fa-star" /></span>
+          <span class="navbar-text">Experience</span>
+        </li>
+      </a>
+      <a class="anchor" href="#work">
+        <li>
+          <span><i class="fa-regular fa-briefcase" /></span>
+          <span class="navbar-text">Work</span>
+        </li>
+      </a>
+      <a class="anchor" href="#education">
+        <li>
+          <span><i class="fa-regular fa-school" /></span>
+          <span class="navbar-text">Education</span>
+        </li>
+      </a>
+    </ul>
+    <div class="scroll-progress">
+      <ScrollProgress />
     </div>
-    <i on:click={toggleMenu} on:keydown={toggleMenu} class={icon_class} />
   </div>
 </nav>
-
-<div class={menu_class}>
-  <ul>
-    <a on:click={toggleMenu} class="anchor" href="#about">
-      <li><span><i class="fa-regular fa-address-card" /></span> About</li>
-    </a>
-    <a on:click={toggleMenu} class="anchor" href="#experience">
-      <li><span><i class="fa-regular fa-star" /></span> Experience</li>
-    </a>
-    <a on:click={toggleMenu} class="anchor" href="#work">
-      <li><span><i class="fa-regular fa-briefcase" /></span> Work</li>
-    </a>
-    <a on:click={toggleMenu} class="anchor" href="#education">
-      <li><span><i class="fa-regular fa-school" /></span> Education</li>
-    </a>
-  </ul>
-</div>
 
 <style lang="scss">
   @import "../styles/index.scss";
@@ -80,43 +69,12 @@
     padding: 0.2em 0;
   }
 
-  /* Fade in */
-  a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.1em;
-    background-image: $accent-gradient;
-    opacity: 0;
-    transition: opacity 300ms, transform 300ms;
-  }
-
-  a:hover::after,
-  a:focus::after {
-    opacity: 1;
-    transform: translate3d(0, 0.2em, 0);
-  }
-
-  /* Slide in */
-  a {
-    overflow: hidden;
-  }
-
-  a::after {
-    opacity: 1;
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  a:hover::after,
-  a:focus::after {
-    transform: translate3d(0, 0, 0);
-  }
   li {
     color: $subtle-body-text-color;
+    display: flex;
+    gap: 0.25rem;
     cursor: pointer;
-    > span {
+    > span > i {
       background-image: var(--accent-gradient);
       -webkit-background-clip: text;
       background-clip: text;
@@ -127,98 +85,133 @@
     }
   }
 
-  .drawer-menu {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100% - 4rem);
-    z-index: $z-index-drawer;
-    width: 100%;
-    transform: translateX(100%);
-    height: 100%;
-    top: 4rem;
-    transition: transform $transition-fast ease;
-    backdrop-filter: blur(5px);
-    background: linear-gradient(
-      0deg,
-      rgba(9, 33, 35, 0.9) 0%,
-      rgba(0, 0, 0, 0.9) 100%
-    );
-
-    ul {
-      gap: 2rem;
-      list-style-type: none;
-      color: $body-text-color;
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      font-size: 2rem;
-    }
-    &.open {
-      transform: translateX(0);
-    }
-  }
   nav {
-    position: sticky;
-    top: 0;
-    opacity: 0;
-    height: 3rem;
+    position: fixed;
+    top: 1rem;
+    bottom: auto;
+    left: 50%;
     display: flex;
-    padding: $padding-s 2rem;
+    align-items: center;
+    transform: translate3d(-50%, -80px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg);
     justify-content: center;
+    border-radius: $border-radius-pill;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    animation: jumpOut 500ms ease forwards;
 
     &.shouldDim {
       opacity: 1;
-      backdrop-filter: blur(5px);
-      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: dropIn 500ms ease forwards;
+      transform-style: preserve-3d;
     }
-    &.isOpen {
-      opacity: 1;
-      background-color: rgba(0, 0, 0, 1);
-    }
+
     z-index: $z-index-navbar;
     transition: 0.3s all ease;
     .navbar-content {
+      gap: 3rem;
       display: flex;
-      max-width: 1100px;
-      width: 100%;
-      justify-content: space-between;
+      padding: 0.25rem 1rem;
       align-items: center;
-      .menu-icon {
-        font-size: 2.5rem;
-        color: $body-text-color;
-        display: none;
-        &:hover {
-          cursor: pointer;
-        }
+      position: relative;
+      .scroll-progress {
+        position: absolute;
+        opacity: 0.8;
+        bottom: calc(0.075rem - 1px);
+        left: 1rem;
+        width: 85%;
       }
     }
     ul {
       display: flex;
-      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      gap: 1rem;
       justify-content: flex-end;
       list-style-type: none;
+      li {
+        i {
+          transition: all $transition-fast ease;
+          filter: none;
+          transform: translateY(0%);
+        }
+        &:hover i {
+          transform: translateY(-10%);
+          filter: drop-shadow(1px 5px 3px rgba(0, 0, 0, 0.9));
+        }
+      }
+      .navbar-text {
+        color: $subtle-body-text-color;
+        transition: color $transition-fast ease;
+        &:hover {
+          color: $body-text-color;
+        }
+      }
     }
   }
-  @media only screen and (max-width: 1000px) {
-    nav {
-      height: 4rem;
-      padding: 0 2rem;
+
+  @keyframes dropIn {
+    0% {
+      transform: translate3d(-50%, -80px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg);
+      opacity: 0;
+    }
+
+    50% {
+      transform: translate3d(-50%, 10px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate3d(-50%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg);
     }
   }
+
+  @keyframes jumpOut {
+    0% {
+      transform: translate3d(-50%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translate3d(-50%, 10px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate3d(-50%, -80px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg);
+      opacity: 0;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     .navbar-content {
+      .scroll-progress {
+        left: 0;
+      }
       i.menu-icon {
         display: flex;
       }
+      .desktop-list {
+        ul {
+          gap: 3rem;
+          justify-content: space-between;
+        }
+      }
     }
     i:not(.menu-icon) {
-      width: 4rem;
+      font-size: 1.5rem;
       text-align: center;
     }
-    .desktop-list {
+
+    .navbar-text {
       display: none;
     }
   }

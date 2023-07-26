@@ -1,7 +1,7 @@
 ---
 export interface Props {
   title: string
-  appendix: string
+  appendix?: string
 }
 
 const { title, appendix } = Astro.props
@@ -26,8 +26,9 @@ const { title, appendix } = Astro.props
     margin: 0;
     align-items: center;
     border: 1px solid rgba(var(--accent), 25%);
-    backdrop-filter: blur(3px);
-    background-color: rgba(28, 28, 28, 0.4);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    background-color: rgba(28, 28, 28, 0.2);
     color: lightgray;
     border-radius: 0.4rem;
     overflow: hidden;
@@ -36,12 +37,14 @@ const { title, appendix } = Astro.props
     &.hidden {
       opacity: 0;
       filter: blur(5px);
+      -webkit-filter: blur(5px);
       transform: translateY(50%);
     }
 
     &.visible {
       opacity: 1;
       filter: blur(0);
+      -webkit-filter: blur(0);
       transform: translateY(0);
     }
 
@@ -53,7 +56,7 @@ const { title, appendix } = Astro.props
     .header {
       width: 100%;
       align-self: flex-start;
-      background: $accent-gradient;
+      background: $accent-gradient-card;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -67,7 +70,7 @@ const { title, appendix } = Astro.props
       }
       .appendix-text {
         font-size: 1rem;
-        color: black;
+        color: $body-text-color;
         line-height: 1;
         padding: 1rem 2rem;
         margin: 0;
@@ -79,4 +82,5 @@ const { title, appendix } = Astro.props
       flex-direction: column-reverse;
     }
   }
+  
 </style>

@@ -18,14 +18,15 @@
 
   .rating-container {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.25rem;
     .rating-bubble {
       border-radius: 50%;
-      width: 1rem;
-      height: 1rem;
+      width: 0.75rem;
+      height: 0.75rem;
       background: gray;
       &.filled {
         background: $accent-gradient;
+        background-size: 150%;
       }
     }
   }
