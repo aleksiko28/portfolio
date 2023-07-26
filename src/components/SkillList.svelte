@@ -56,7 +56,7 @@
     <input
       bind:this={inputValue}
       on:input={filterSkills}
-      placeholder="Search"
+      placeholder="Search..."
     />
     <div class="sort-icons">
       <!-- <Select /> -->
@@ -112,7 +112,7 @@
 
     input {
       border-radius: $border-radius-input;
-      padding: 0.5rem 0.75rem;
+      padding: 0.5rem 1rem;
       font-family: $body-font;
       background-color: transparent;
       border: 1px solid gray;

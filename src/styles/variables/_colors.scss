@@ -1,9 +1,11 @@
 $background-color: #3a405a;
 $primary-color: rgb(72, 191, 227);
 $secondary-color: #5e60ce;
-$body-text-color: white;
+
+$body-text-color: #d9d9d9;
 $body-text-color--hover: rgb(176, 176, 176);
 $subtle-body-text-color: lightgray;
+$link-color: #00a2e7;
 
 $card-background-color: black;
 $color-background-input: rgb(24, 24, 24);
@@ -17,7 +19,7 @@ $accent-gradient: linear-gradient(
   45deg,
   $primary-color,
   $secondary-color 40%,
-  white 75%
+  $body-text-color 75%
 );
 
 $accent-gradient-card: linear-gradient(

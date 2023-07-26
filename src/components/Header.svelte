@@ -192,18 +192,21 @@
   }
 
   @media only screen and (max-width: 600px) {
-    .navbar-content {
-      .scroll-progress {
-        left: 0;
+    nav {
+      width: 80%;
+      .navbar-content {
+        width: 100%;
+        .scroll-progress {
+          left: 0;
+        }
       }
       i.menu-icon {
         display: flex;
       }
-      .desktop-list {
-        ul {
-          gap: 3rem;
-          justify-content: space-between;
-        }
+      ul {
+        width: 100%;
+        gap: 3rem;
+        justify-content: space-between;
       }
     }
     i:not(.menu-icon) {

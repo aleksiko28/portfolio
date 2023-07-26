@@ -9,7 +9,7 @@
   </div>
   <div class="socials-and-contacts">
     <div class="contacts">
-      <h3 class="text-gradient">Contact information</h3>
+      <h3 class="contact-info">Contact information</h3>
       <span class="icon-text">
         <i class="fa-solid fa-envelope" />
         <a href="mailto:aleksi.koivu28@gmail.com">aleksi.koivu28@gmail.com</a>
