@@ -49,6 +49,8 @@
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
+      background: linear-gradient(transparent 0%, black 40%);
+      background-position-y: -20%;
       transition: all $transition-slow ease;
 
       &.hidden {
@@ -63,19 +65,19 @@
 
       .title {
         text-align: center;
-        color: white;
         text-transform: uppercase;
         font-size: 5rem;
         padding-top: 1.5rem;
         background: linear-gradient(transparent 0%, black 50%);
         line-height: 1;
+        @include title-text;
       }
 
       .subtitle {
         display: flex;
         position: relative;
         width: 100%;
-        color: $subtitle-color;
+        color: $body-text-color;
         justify-content: center;
         font-size: 1.25rem;
         left: 50%;

@@ -5,6 +5,7 @@
   export let href: string = ""
   export let target: string = "_blank"
   export let rel: string = "noreferrer"
+  export let download: string = "filename.jpg"
 </script>
 
 {#if href === ""}
@@ -27,6 +28,7 @@
     {href}
     {target}
     {rel}
+    {download}
     {...buttonProps}
     class="btn"
   >

@@ -4,9 +4,35 @@ import SectionCard from "./SectionCard.astro"
 
 <SectionCard>
     <div>
-        <h3>Hobbies</h3>
+        <h3>In my free time I like to</h3>
+        <ul>
+            <li>Play football</li>
+            <li>Go to the gym or for a run</li>
+            <li>Walk my dogs</li>
+            <li>Work on personal programming projects</li>
+        </ul>
     </div>
 </SectionCard>
 
 <style lang="scss">
+    @import "../styles/index.scss";
+    ul, li {
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        li {
+            padding: 0.5rem 0;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid $color-border-card;
+            }
+        }
+    }
+    h3 {
+        @include gradient-text;
+        margin-top: 0;
+        text-transform: uppercase;
+    }
 </style>
