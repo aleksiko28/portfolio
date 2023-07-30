@@ -15,15 +15,6 @@
     })
   }
 
-  const getTrailerClass = (type) => {
-    switch (type) {
-      case "info":
-        return "fa-solid fa-info"
-      default:
-        return "fa-solid fa-arrow-up-right-from-square"
-    }
-  }
-
   window.onmousemove = (e) => {
     const trailer = document.getElementById("trailer")
     const interactable = e.target.closest(".interactable"),
@@ -46,7 +37,7 @@
 </script>
 
 <div id="trailer">
-  <i id="trailer-icon" class="fa-thin fa-arrow-up-right-from-square" />
+  <i id="trailer-icon" class="fa-solid fa-arrow-up-right-from-square" />
 </div>
 
 <style lang="scss">
@@ -59,8 +50,8 @@
     box-shadow: 0 0 8px 2px #78a4eb, 0 0 6px 1.5px lightblue inset;
     color: black;
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 1.5rem;
+    top: -1rem;
     z-index: $z-index-tooltip;
 
     pointer-events: none;

@@ -24,14 +24,25 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5rem;
+
+    .text-gradient {
+      @include gradient-text;
+    }
   }
-  h1 {
+  h1,
+  h2 {
     padding-left: 2rem;
     font-size: 3rem;
     color: white;
     font-weight: 800;
     margin: 0;
     font-weight: 800;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    font-size: 2rem;
   }
   .header {
     display: flex;

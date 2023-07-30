@@ -55,9 +55,14 @@ const years = ["2022", "2020", "2016", "2013"]
 </SectionCard>
 
 <style lang="scss">
+  @import "../styles/index.scss";
   .content {
     display: flex;
     width: 100%;
+
+    li {
+      color: $subtitle-color;
+    }
     .padding {
       width: 100%;
       display: flex;
@@ -79,6 +84,11 @@ const years = ["2022", "2020", "2016", "2013"]
       flex-basis: 100%;
       width: 100%;
       flex-direction: column;
+
+
+      .text-gradient {
+        @include gradient-text;
+      }
       .internal-list {
         list-style-type: square;
         padding-left: 2rem;

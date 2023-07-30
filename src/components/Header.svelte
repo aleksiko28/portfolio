@@ -20,9 +20,6 @@
 
 <nav class:isOpen class:shouldDim>
   <div class="navbar-content">
-    <a href="#top">
-      <Logo />
-    </a>
     <ul>
       <a class="anchor" href="#about">
         <li>
@@ -57,6 +54,7 @@
 
 <style lang="scss">
   @import "../styles/index.scss";
+
   a {
     color: unset;
   }
@@ -113,7 +111,7 @@
     .navbar-content {
       gap: 3rem;
       display: flex;
-      padding: 0.25rem 1rem;
+      padding: 0.5rem 1.5rem;
       align-items: center;
       position: relative;
       .scroll-progress {
@@ -128,7 +126,7 @@
       display: flex;
       margin: 0;
       padding: 0;
-      gap: 1rem;
+      gap: 2rem;
       justify-content: flex-end;
       list-style-type: none;
       li {
@@ -138,7 +136,6 @@
           transform: translateY(0%);
         }
         &:hover i {
-          transform: translateY(-10%);
           filter: drop-shadow(1px 5px 3px rgba(0, 0, 0, 0.9));
         }
       }

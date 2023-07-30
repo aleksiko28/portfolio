@@ -3,21 +3,11 @@
 @forward "./variables/spacings";
 @forward "./variables/transitions";
 @forward "./variables/elevation";
+@forward "./variables/mixins";
 @forward "./variables/z-indeces";
 
 $body-font: "Unbounded", "Montserrat", "Segoe UI", "Roboto", system-ui,
   sans-serif;
-
-/** Global classes */
-
-.text-gradient {
-  background-image: var(--accent-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400%;
-  background-position: 0%;
-}
 
 /** Default styles */
 

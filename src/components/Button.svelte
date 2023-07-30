@@ -41,7 +41,6 @@
     font-family: $body-font;
     display: flex;
     align-items: center;
-    border: none;
     border-radius: $button-border-radius;
     gap: 0.5rem;
     font-size: 1rem;

@@ -113,7 +113,7 @@
     position: relative;
     text-decoration: none;
     overflow: hidden;
-    outline: 1px solid rgba(var(--accent), 25%);
+    outline: 1px solid $color-border-card;
 
     &:hover .title-and-desc {
       bottom: 0;

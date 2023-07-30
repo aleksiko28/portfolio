@@ -6,14 +6,17 @@ import Background from "../sections/Background.astro"
 import About from "../sections/About.astro"
 import Experience from "../sections/Experience.astro"
 import Work from "../sections/Work.astro"
+import ContactCard from "../sections/ContactCard.astro"
 import Education from "../sections/Education.astro"
+import Hobbies from "../sections/Hobbies.astro"
 
 /** Components */
 import Title from "../components/Title.svelte"
 import MouseTrailer from "../components/MouseTrailer.svelte"
-import ScrollProgress from "../components/ScrollProgress.svelte"
 import Header from "../components/Header.svelte"
+import SectionTitle from "../components/SectionTitle.svelte"
 import "../styles/index.scss"
+
 ---
 
 <script>
@@ -29,7 +32,7 @@ import "../styles/index.scss"
   const observerOptions = {
     root: null, // null means root is viewport
     rootMargin: "0px",
-    threshold: .1, // trigger callback when 10% of the element is visible
+    threshold: .35, // trigger callback when 35% of the element is visible
   }
   const observer = new IntersectionObserver(
     intersectionCallback,
@@ -50,10 +53,28 @@ import "../styles/index.scss"
   <Header client:only />
   <div class="content">
     <Title />
-    <About />
-    <Experience />
-    <Work />
-    <Education />
+    <div class="section-wrapper">
+      <SectionTitle planet="earth" title="About" subtitle="Personal and contact information" />
+      <div class="personal-grid">
+        <About />
+        <div class="contact-grid">
+          <ContactCard />
+          <Hobbies />
+        </div>
+      </div>
+    </div>
+    <div class="section-wrapper">
+      <SectionTitle planet="mars" title="Experience" subtitle="List of different CS-work relevant skills" />
+      <Experience style="width: 100%;" />
+    </div>
+    <div class="section-wrapper">
+      <SectionTitle planet="jupiter" title="Work" subtitle="Relevant work experience" />
+      <Work />
+    </div>
+    <div class="section-wrapper">
+      <SectionTitle planet="neptune" title="Education" subtitle="High school and university education timeline and details" />
+      <Education />
+    </div>
   </div>
 </main>
 
@@ -65,6 +86,7 @@ import "../styles/index.scss"
     scroll-behavior: smooth;
     /** scale everything based on viewport width */
     font-size: clamp(0.75rem, 0.625vw + 0.5625rem, 1rem);
+    box-sizing: border-box;
   }
 
   body,
@@ -79,7 +101,7 @@ import "../styles/index.scss"
     margin: 0;
     overflow: auto;
     display: flex;
-    background: #121212;
+    background: #000;
   }
 
   main {
@@ -99,8 +121,35 @@ import "../styles/index.scss"
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 10rem;
     max-width: 1160px;
+
+    .section-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 2rem;
+    }
+
+    .personal-grid {
+      position: relative;
+      display: grid;
+      gap: 1.5rem;
+      background-image: url("../assets/bg-blue.jpg");
+      background-repeat: no-repeat;
+      background-position: 50% 100%;
+      background-size: contain;
+      grid-template-columns: repeat(2, 1fr);
+
+      .contact-grid {
+      display: grid;
+      gap: 1.5rem;
+
+      grid-template-rows: repeat(2, 1fr);
+      }
+    }
   }
 
   h1 {
@@ -139,12 +188,17 @@ import "../styles/index.scss"
     }
   }
   @media only screen and (max-width: 400px) {
+
     .languages {
       flex-direction: column;
     }
     .content {
       padding: 0;
       gap: 0;
+
+      .personal-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 </style>

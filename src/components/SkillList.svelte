@@ -1,7 +1,6 @@
 <script lang="ts">
   import Card from "../components/Card.svelte"
   import Button from "./Button.svelte"
-  import Select from "./Select.svelte"
 
   interface skill {
     title: string
@@ -59,7 +58,6 @@
       placeholder="Search..."
     />
     <div class="sort-icons">
-      <!-- <Select /> -->
       <Button on:keydown={sortByTitle} on:click={sortByTitle}>
         <span
           class="fa-solid {alphDesc ? 'fa-arrow-up-z-a' : 'fa-arrow-down-a-z'}"

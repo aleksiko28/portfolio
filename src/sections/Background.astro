@@ -36,7 +36,7 @@ import bgGradients from "../assets/gradient-bg.png"
 <div id="gradient"></div>
 <div class="black-gradient"></div>
 <div class="black-gradient reversed"></div>
-<img id="custom-gradient" src={bgGradients.src} />
+<!-- <img id="custom-gradient" src={bgGradients.src} /> -->
 
 <style lang="scss">
   @import "../styles/index.scss";
@@ -45,18 +45,21 @@ import bgGradients from "../assets/gradient-bg.png"
     position: absolute;
     top: 3rem;
     right: 3rem;
-    width: 100px;
-    height: 100px;
+    width: 6rem;
+    height: 6rem;
     z-index: $z-index-tooltip;
     transition: 0.3s all ease;
+    box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
+            inset -70px 0px 50px 0px black,
+            -5px 0px 10px -4px white;
     border-radius: 50%;
     &:hover {
       cursor: pointer;
       scale: 1.1;
       rotate: 5deg;
-      box-shadow: 0 4px 6px -1px $accent, 0 2px 4px -2px rgba(255, 255, 255, 1);
     }
   }
+
   .moon,
   .github-icon {
     position: absolute;

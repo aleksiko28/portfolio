@@ -4,7 +4,6 @@ import SectionCard from "./SectionCard.astro"
 ---
 
 <SectionCard title="About">
-  <div class="content">
     <div>
       <h2>
         I am a developer who specializes in <span class="text-gradient"
@@ -28,28 +27,16 @@ import SectionCard from "./SectionCard.astro"
           >comprehensive educational background</a
         > allow me to quickly pick up new languages, technologies, and practices.
         For this portfolio page I wanted to learn something new, and so I created
-        it using Astro and Svelte, two bleeding-edge frontend frameworks that were
+        it using Astro and Svelte, two bleeding-edge frontend/web frameworks that were
         good fits for this use case.
       </p>
     </div>
-    <Personals />
-  </div>
 </SectionCard>
 
 <style lang="scss">
   @import "../styles/index.scss";
-  .content {
-    display: flex;
-    padding: 1.5rem;
-    p {
-      line-height: 1.5;
-    }
-    gap: 1rem;
-  }
 
-  @media only screen and (max-width: 1000px) {
-    .content {
-      flex-direction: column-reverse;
-    }
+  .text-gradient {
+    @include gradient-text;
   }
 </style>
