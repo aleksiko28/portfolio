@@ -70,7 +70,7 @@
   @mixin planetization {
     @each $planet in $solarSystem {
       &--#{$planet} {
-        .planet__atmosphere {
+        .planet__atmosphere::before {
           box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
             inset -70px 0px 50px 0px black,
             -5px 0px 10px -4px var(--#{$planet}-color);
@@ -103,13 +103,30 @@
       height: 190px;
       width: 190px;
       position: relative;
-      background: radial-gradient(
-        circle at 30% 50%,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0) 65%
-      );
+
       border-radius: 100px;
       overflow: hidden;
+      --mask: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0,
+          rgba(0, 0, 0, 1) 30%,
+          rgba(0, 0, 0, 0) 75%,
+          rgba(0, 0, 0, 0) 0
+        )
+        100% 50% / 100% 100% repeat-x;
+      -webkit-mask: var(--mask);
+      mask: var(--mask);
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: radial-gradient(
+          circle at 30% 50%,
+          rgba(255, 255, 255, 0.3) 0%,
+          rgba(255, 255, 255, 0) 65%
+        );
+      }
     }
     &__surface {
       position: absolute;

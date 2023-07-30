@@ -25,10 +25,10 @@
           </div>
         </div>
         <div class="phone-and-email">
-          <Button>
+          <Button href="tel:+358408757038">
             <i class="fa-solid fa-phone" />
           </Button>
-          <Button>
+          <Button href="mailto:aleksi.koivu28@gmail.com">
             <i class="fa-solid fa-envelope" />
           </Button>
         </div>

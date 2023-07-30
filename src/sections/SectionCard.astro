@@ -2,8 +2,8 @@
 const { noPadding } = Astro.props;
 ---
 
-<div class="intro hidden">
-  <div class:list={['content', { zeroPad: noPadding }]}>
+<div class="intro">
+  <div class:list={['content hidden', { zeroPad: noPadding }]}>
     <slot />
   </div>
 </div>
@@ -23,20 +23,7 @@ const { noPadding } = Astro.props;
     color: $body-text-color;
     border-radius: $border-radius-card;
     overflow: hidden;
-    transition: all 350ms ease;
     width: 100%;
-
-    &.hidden {
-      opacity: 0;
-      filter: blur(5px);
-      -webkit-filter: blur(5px);
-    }
-
-    &.visible {
-      opacity: 1;
-      filter: blur(0);
-      -webkit-filter: blur(0);
-    }
 
     .content {
       display: flex;
@@ -44,6 +31,19 @@ const { noPadding } = Astro.props;
       height: 100%;
       padding: 2rem;
       box-sizing: border-box;
+      transition: all $transition-medium ease;
+
+      &.hidden {
+        opacity: 0;
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+      }
+
+      &.visible {
+        opacity: 1;
+        filter: blur(0);
+        -webkit-filter: blur(0);
+      }
       &.zeroPad {
         padding: 0;
       }

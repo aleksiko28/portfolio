@@ -4,8 +4,10 @@
 
   let shouldDim = false
   let isOpen = false
+  let initialRender = true
   function checkScroll() {
     if (document.scrollingElement.scrollTop > 300) {
+      initialRender = false
       shouldDim = true
     } else {
       shouldDim = false
@@ -15,10 +17,11 @@
     checkScroll()
   })
 
+  // check initial scroll pos
   checkScroll()
 </script>
 
-<nav class:isOpen class:shouldDim>
+<nav class:initialRender class:isOpen class:shouldDim>
   <div class="navbar-content">
     <ul>
       <a class="anchor" href="#about">
@@ -98,7 +101,12 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     animation: jumpOut 500ms ease forwards;
 
+    &.initialRender {
+      display: none;
+    }
+
     &.shouldDim {
+      display: block;
       opacity: 1;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);

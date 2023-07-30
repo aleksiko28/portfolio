@@ -4,7 +4,7 @@
 
 <div class="title-page">
   <div class="header">
-    <h1 class="first-row">Hello.</h1>
+    <h1 class="first-row tracking-in-expand">Hello.</h1>
     <h1 class="second-row">
       My name is
       <span class="text-gradient">Aleksi Koivu</span>
@@ -54,11 +54,6 @@
     opacity: 0;
   }
 
-  .first-row {
-    animation: fadeIn 1s ease forwards;
-    -webkit-animation: fadeIn 1s ease forwards;
-  }
-
   .second-row {
     color: gray;
     animation: fadeInTwo 1.5s ease forwards;
@@ -96,9 +91,31 @@
     animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
-  @keyframes fadeIn {
+  .tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.7s
+      cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+
+  @-webkit-keyframes tracking-in-expand {
     0% {
+      letter-spacing: -0.5em;
       opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
     }
     100% {
       opacity: 1;

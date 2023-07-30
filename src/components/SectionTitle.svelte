@@ -49,8 +49,6 @@
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-      background: linear-gradient(transparent 0%, black 40%);
-      background-position-y: -20%;
       transition: all $transition-slow ease;
 
       &.hidden {
