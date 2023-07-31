@@ -31,7 +31,7 @@ const { noPadding } = Astro.props;
       height: 100%;
       padding: 2rem;
       box-sizing: border-box;
-      transition: all $transition-medium ease;
+      transition: opacity $transition-medium ease, filter $transition-fast ease;
 
       &.hidden {
         opacity: 0;
@@ -73,9 +73,9 @@ const { noPadding } = Astro.props;
       }
     }
   }
-  @media only screen and (max-width: 600px) {
-    .intro .content {
-      flex-direction: column-reverse;
+  @media only screen and (max-width: 720px) {
+    .intro {
+      border-radius: 0;
     }
   }
   

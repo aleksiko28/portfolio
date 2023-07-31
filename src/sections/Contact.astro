@@ -1,0 +1,73 @@
+---
+import Button from "../components/Button.svelte";
+import Input from "../components/Input.svelte";
+import Textarea from "../components/Textarea.svelte";
+import SectionCard from "./SectionCard.astro"
+---
+
+<SectionCard>
+    <form action="https://formsubmit.co/el/vibini" method="POST" class="contact">
+        <div class="inputs">
+            <div class="name-and-email">
+                <Input name="Name" type="text" placeholder="John Doe" label="Name" required />
+                <Input name="Email" type="email" placeholder="johndoe@email.com" label="Email" required />
+            </div>
+            <Textarea name="Message" placeholder="Your enquiry" label="Message" required />
+            <span class="cta">
+                <Button id="form-submit-btn" type="submit">
+                    <i class="fa-solid fa-envelope"></i>
+                    Send message
+                </Button>
+            </span>
+        </div>
+    </form>
+</SectionCard>
+
+
+<script>
+    const btn = document.querySelector("#form-submit-btn")
+    if (btn) {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("Succesfully submitted")
+        })
+    }
+</script>
+
+<style lang="scss">
+    @import "../styles/index.scss";
+    .contact {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        align-items: center;
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .name-and-email {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .cta {
+                display: flex;
+                align-self: flex-end;
+                margin-top: 1rem;
+            }
+        }
+
+        h3 {
+            @include gradient-text;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        
+    }
+</style>

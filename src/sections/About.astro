@@ -2,6 +2,7 @@
 import Personals from "../components/Personals.svelte"
 import SectionCard from "./SectionCard.astro"
 import Button from "../components/Button.svelte"
+import Logo from "../components/Logo.svelte"
 
 import Papi from "../assets/papi.jpg"
 
@@ -10,11 +11,14 @@ import Papi from "../assets/papi.jpg"
 <SectionCard title="About">
   <div class="about-container">
     <div>
-      <h2>
-        I am a developer who specializes in <span class="text-gradient"
+      <div class="logo-title">
+        <h2>
+          I am a developer who specializes in <span class="text-gradient"
           >frontend development</span
-        >
-      </h2>
+          >
+        </h2>
+        <Logo />
+      </div>
       <p>
         I would describe myself as someone with a keen eye for design and a
         genuine passion for delivering exceptional user experiences. With years
@@ -51,6 +55,17 @@ import Papi from "../assets/papi.jpg"
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-end;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .logo-title {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
   }
 
   .text-gradient {

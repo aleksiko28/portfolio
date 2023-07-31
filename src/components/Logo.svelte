@@ -93,8 +93,8 @@
   @import "../styles/index.scss";
 
   .logo {
-    width: 12.5rem;
-    height: 12.5rem;
+    width: 5rem;
+    height: 5rem;
     background: $accent-gradient;
     transition: background-position 0.5s ease;
     background-size: 200%;
@@ -104,8 +104,8 @@
     border-radius: $border-radius-circle;
   }
   svg {
-    width: 10rem;
-    height: 10rem;
+    width: 6rem;
+    height: 6rem;
     display: flex;
     align-items: center;
 

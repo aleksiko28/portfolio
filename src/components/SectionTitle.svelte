@@ -64,7 +64,7 @@
       .title {
         text-align: center;
         text-transform: uppercase;
-        font-size: 5rem;
+        font-size: 3.5rem;
         padding-top: 1.5rem;
         background: linear-gradient(transparent 0%, black 50%);
         line-height: 1;
@@ -72,10 +72,13 @@
       }
 
       .subtitle {
+        box-sizing: border-box;
         display: flex;
         position: relative;
+        text-align: center;
         width: 100%;
         color: $body-text-color;
+        padding: 0 1rem;
         justify-content: center;
         font-size: 1.25rem;
         left: 50%;

@@ -10,10 +10,12 @@ import ContactCard from "../sections/ContactCard.astro"
 import Education from "../sections/Education.astro"
 import Hobbies from "../sections/Hobbies.astro"
 import DogTax from "../sections/DogTax.astro"
+import Contact from "../sections/Contact.astro"
 
 /** Components */
 import Title from "../components/Title.svelte"
 import MouseTrailer from "../components/MouseTrailer.svelte"
+import Footer from "../components/Footer.svelte"
 import Header from "../components/Header.svelte"
 import SectionTitle from "../components/SectionTitle.svelte"
 import SectionBG from "../components/SectionBG.svelte"
@@ -70,11 +72,11 @@ import "../styles/index.scss"
     </div>
 
     <Section primary="#c07158" secondary="#3f2ed5">
-      <SectionTitle planet="mars" title="Experience" subtitle="List of different development related skills" />
+      <SectionTitle planet="mars" title="Experience" subtitle="List of different development work related skills" />
       <Experience />
     </Section>
 
-    <Section primary="#b3b3b3" secondary="#e38815">
+    <Section primary="cyan" secondary="#e38815">
       <SectionTitle planet="jupiter" title="Work" subtitle="Relevant work experience" />
       <Work />
     </Section>
@@ -84,7 +86,13 @@ import "../styles/index.scss"
       <Education />
     </Section>
 
+    <!-- <Section primary="#3f2ed5" secondary="rgb(72, 191, 227)">
+      <SectionTitle planet="neptune" title="Contact" subtitle="Fill out the form and reach out if you wish to contact me" />
+      <Contact />
+    </Section> -->
+
   </div>
+  <!-- <Footer /> -->
 </main>
 
 <style lang="scss">
@@ -154,7 +162,7 @@ import "../styles/index.scss"
         content: "";
         z-index: -1;
         top: -50%;
-        bottom: -25%;
+        bottom: -20rem;
         width: 100%;
         left: 0;
         background: url('../assets/noise.webp') repeat,linear-gradient(83.21deg,#3245ff 0%,#1c732e 100%);
@@ -212,14 +220,9 @@ import "../styles/index.scss"
       padding-right: 2rem;
     }
   }
-  @media only screen and (max-width: 400px) {
-
-    .languages {
-      flex-direction: column;
-    }
+  @media only screen and (max-width: 720px) {
     .content {
       padding: 0;
-      gap: 0;
 
       .personal-grid {
         grid-template-columns: repeat(1, 1fr);

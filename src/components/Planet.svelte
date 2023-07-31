@@ -100,8 +100,8 @@
   .planet {
     @include planetization;
     &__atmosphere {
-      height: 190px;
-      width: 190px;
+      height: 12rem;
+      width: 12rem;
       position: relative;
 
       border-radius: 100px;

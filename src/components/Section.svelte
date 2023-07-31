@@ -41,7 +41,7 @@
       content: "";
       z-index: -1;
       top: -0%;
-      bottom: -25%;
+      bottom: -10rem;
       width: 100%;
       left: 0;
       background: url("../assets/noise.webp") repeat,

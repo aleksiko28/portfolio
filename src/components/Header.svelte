@@ -122,6 +122,7 @@
       padding: 0.5rem 1.5rem;
       align-items: center;
       position: relative;
+      box-sizing: border-box;
       .scroll-progress {
         position: absolute;
         opacity: 0.8;
@@ -198,11 +199,11 @@
 
   @media only screen and (max-width: 600px) {
     nav {
-      width: 80%;
+      width: 75%;
       .navbar-content {
         width: 100%;
         .scroll-progress {
-          left: 0;
+          left: 1.25rem;
         }
       }
       i.menu-icon {
@@ -210,7 +211,7 @@
       }
       ul {
         width: 100%;
-        gap: 3rem;
+        padding: 0.5rem 1rem;
         justify-content: space-between;
       }
     }

@@ -6,6 +6,7 @@
   export let target: string = "_blank"
   export let rel: string = "noreferrer"
   export let download: string = "filename.jpg"
+  export let id: string = ""
 </script>
 
 {#if href === ""}
@@ -14,6 +15,7 @@
     on:mouseover
     on:mouseenter
     on:mouseleave
+    {id}
     {...buttonProps}
     class="btn"
   >
@@ -29,6 +31,7 @@
     {target}
     {rel}
     {download}
+    {id}
     {...buttonProps}
     class="btn"
   >
