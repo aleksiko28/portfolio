@@ -8,7 +8,4 @@ export default defineConfig({
   site: "https://aleksiko28.github.io",
   base: "/portfolio/",
   integrations: [svelte()],
-  experimental: {
-    assets: true,
-  },
 })
