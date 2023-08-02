@@ -51,7 +51,7 @@
     color: black;
     position: fixed;
     left: 1.5rem;
-    top: -1rem;
+    top: -$padding-m;
     z-index: $z-index-tooltip;
 
     pointer-events: none;

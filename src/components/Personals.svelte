@@ -110,7 +110,7 @@
 
       .phone-and-email {
         display: flex;
-        gap: 1rem;
+        gap: $padding-m;
       }
     }
 
@@ -139,7 +139,7 @@
         .social-buttons {
           display: flex;
           justify-content: flex-end;
-          gap: 1rem;
+          gap: $padding-m;
         }
         i {
           font-size: 1.25rem;
@@ -159,7 +159,7 @@
           flex-direction: row;
           align-items: center;
           width: 100%;
-          gap: 1rem;
+          gap: $padding-m;
           i {
             width: 16px;
             height: 16px;

@@ -49,7 +49,7 @@
     border-radius: $button-border-radius;
     gap: 0.5rem;
     font-size: 1rem;
-    padding: 0.675rem 1rem;
+    padding: 0.675rem $padding-m;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: $background-color-button;
     transition: all $transition-x-fast ease;

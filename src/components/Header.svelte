@@ -88,7 +88,7 @@
 
   nav {
     position: fixed;
-    top: 1rem;
+    top: $padding-m;
     bottom: auto;
     left: 50%;
     display: flex;
@@ -119,7 +119,7 @@
     .navbar-content {
       gap: 3rem;
       display: flex;
-      padding: 0.5rem 1.5rem;
+      padding: $padding-s 1.5rem;
       align-items: center;
       position: relative;
       box-sizing: border-box;
@@ -127,7 +127,7 @@
         position: absolute;
         opacity: 0.8;
         bottom: calc(0.075rem - 1px);
-        left: 1rem;
+        left: $padding-m;
         width: 85%;
       }
     }
@@ -211,7 +211,7 @@
       }
       ul {
         width: 100%;
-        padding: 0.5rem 1rem;
+        padding: $padding-s $padding-m;
         justify-content: space-between;
       }
     }

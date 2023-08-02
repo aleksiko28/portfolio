@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     color: $body-text-color;
-    gap: 1rem;
+    gap: $padding-m;
 
     .item {
       display: flex;

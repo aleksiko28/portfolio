@@ -104,13 +104,13 @@
   }
   .filters {
     display: flex;
-    padding: 1rem;
+    padding: $padding-m;
     justify-content: space-between;
     align-items: center;
 
     input {
       border-radius: $border-radius-input;
-      padding: 0.5rem 1rem;
+      padding: $padding-s $padding-m;
       font-family: $body-font;
       background-color: transparent;
       border: 1px solid gray;

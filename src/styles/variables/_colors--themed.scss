@@ -1,0 +1,10 @@
+@forward "./variables/colors";
+
+$themes: (
+  light: (
+    background-color: #fff,
+  ),
+  dark: (
+    background-color: $dark-color-background,
+  ),
+);

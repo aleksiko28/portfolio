@@ -78,7 +78,7 @@
         text-align: center;
         width: 100%;
         color: $body-text-color;
-        padding: 0 1rem;
+        padding: 0 $padding-m;
         justify-content: center;
         font-size: 1.25rem;
         left: 50%;

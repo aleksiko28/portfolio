@@ -86,7 +86,7 @@
       height: 100%;
       justify-content: center;
       pointer-events: none;
-      padding: 1rem 1.3rem;
+      padding: $padding-m 1.3rem;
 
       .image-rating {
         display: flex;
@@ -101,7 +101,7 @@
           }
           height: 2.5rem;
           object-fit: cover;
-          margin-bottom: 1rem;
+          margin-bottom: $padding-m;
           align-self: center;
         }
       }
@@ -128,7 +128,7 @@
     font-size: 0.75rem;
     line-height: 1.5;
     margin: 0;
-    color: $card-subtitle-color;
+    color: $body-text-color;
   }
 
   /* the important bits */
@@ -141,14 +141,14 @@
     transform: rotate3d(1, 0, 0, 90deg);
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    padding: $padding-m;
     display: flex;
     align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: $card-info-background-color;
   }
 
   .in-top {

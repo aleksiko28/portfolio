@@ -37,7 +37,7 @@
     align-items: flex-end;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1rem;
+    gap: $padding-m;
     position: relative;
 
     .year {

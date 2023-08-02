@@ -26,7 +26,7 @@
 
     input {
       border-radius: $border-radius-input;
-      padding: 0.5rem;
+      padding: $padding-s;
       font-family: $body-font;
       background-color: transparent;
       border: 1px solid gray;
