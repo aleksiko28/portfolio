@@ -51,20 +51,20 @@
     font-size: 1rem;
     padding: 0.675rem $padding-m;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background: $background-color-button;
-    transition: all $transition-x-fast ease;
-    color: $color-button;
+    background: var(--background-color-button);
+    transition: all $transition-fast ease;
+    color: var(--color-button);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     text-decoration: unset;
     &:hover {
       cursor: pointer;
-      border-color: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-color: var(--button-border-color-hover);
+      box-shadow: 0 6px 12px var(--button-shadow-hover);
     }
     &:active {
       transform: scale(0.94);
-      border-color: $accent-dim;
+      border-color: var(--accent-dim);
     }
   }
 </style>

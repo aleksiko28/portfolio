@@ -19,7 +19,7 @@
     box-sizing: border-box;
     justify-content: space-between;
     width: 100%;
-    border-top: 1px solid $color-border-card;
+    border-top: 1px solid var(--color-border-card);
     p {
       color: white;
     }

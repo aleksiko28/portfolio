@@ -71,7 +71,7 @@
   }
 
   li {
-    color: $subtle-body-text-color;
+    color: var(--subtle-body-text-color);
     display: flex;
     gap: 0.25rem;
     cursor: pointer;
@@ -97,8 +97,8 @@
       rotateY(0deg) rotateZ(0deg) skew(0deg);
     justify-content: center;
     border-radius: $border-radius-pill;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: var(--header-background-color);
+    border: 1px solid var(--header-background-color);
     animation: jumpOut 500ms ease forwards;
 
     &.initialRender {
@@ -149,10 +149,10 @@
         }
       }
       .navbar-text {
-        color: $subtle-body-text-color;
+        color: var(--subtle-body-text-color);
         transition: color $transition-fast ease;
         &:hover {
-          color: $body-text-color;
+          color: var(--body-text-color);
         }
       }
     }

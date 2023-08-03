@@ -1,8 +1,12 @@
 @mixin title-text {
-  background: -webkit-linear-gradient(white, #38495a);
+  background: -webkit-linear-gradient(
+    var(--body-text-color),
+    var(--title-text-accent)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 400;
 }
 
 @mixin gradient-text {

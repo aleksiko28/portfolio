@@ -5,6 +5,7 @@
 @forward "./variables/elevation";
 @forward "./variables/mixins";
 @forward "./variables/z-indeces";
+@forward "./variables/font-sizes";
 
 $body-font: "Unbounded", "Montserrat", "Segoe UI", "Roboto", system-ui,
   sans-serif;
@@ -21,7 +22,8 @@ $body-font: "Unbounded", "Montserrat", "Segoe UI", "Roboto", system-ui,
   );
 }
 html {
-  font-family: "Unbounded", system-ui, sans-serif;
+  font-family: $body-font;
+  font-weight: 300;
 }
 code {
   font-family:
@@ -36,7 +38,7 @@ code {
 }
 
 a {
-  color: #00a2e7;
+  color: var(--link-color);
 }
 
 ul {

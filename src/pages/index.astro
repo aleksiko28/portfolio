@@ -118,7 +118,7 @@ import "../styles/index.scss"
     margin: 0;
     overflow: auto;
     display: flex;
-    background: $color-background;
+    background: var(--color-background);
   }
 
   main {
@@ -187,12 +187,10 @@ import "../styles/index.scss"
 
   h1 {
     font-size: 3rem;
-    font-family: "Unbounded", Roboto, Arial;
-    font-weight: 300;
+    font-weight: 400;
     background: -webkit-linear-gradient(white, #38495a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 800;
     margin: 0;
   }
   h2,
@@ -201,7 +199,7 @@ import "../styles/index.scss"
   h5,
   h6,
   p {
-    color: $body-text-color;
+    color: var(--body-text-color);
   }
   .text-gradient {
     background-image: var(--accent-gradient);

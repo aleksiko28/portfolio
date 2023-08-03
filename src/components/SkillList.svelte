@@ -114,12 +114,12 @@
       font-family: $body-font;
       background-color: transparent;
       border: 1px solid gray;
-      color: $body-text-color;
+      color: var(--body-text-color);
       &:focus {
         outline: none;
       }
       &:focus-visible {
-        border-color: $accent;
+        border-color: var(--accent);
       }
     }
 
@@ -133,7 +133,7 @@
         transition: $transition-fast all ease;
         &:hover {
           cursor: pointer;
-          color: $accent;
+          color: var(--accent);
         }
       }
     }

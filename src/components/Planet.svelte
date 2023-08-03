@@ -1,14 +1,28 @@
 <script lang="ts">
   export let name: string = "earth"
+  export let noMask: boolean = false
+
+  let maskStyle = noMask
+    ? ``
+    : `--mask: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0,
+          rgba(0, 0, 0, 1) 30%,
+          rgba(0, 0, 0, 0) 75%,
+          rgba(0, 0, 0, 0) 0
+        )
+        100% 50% / 100% 100% repeat-x;`
 </script>
 
 <div class="planet--{name}">
-  <div class="planet__atmosphere">
+  <div style={maskStyle} class="planet__atmosphere">
     <div class="planet__surface" />
   </div>
 </div>
 
 <style lang="scss">
+  @import "../styles/index.scss";
+
   :root {
     --mercury-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/mercury2.jpg);
     --mercury-tilt: rotate(0.034deg);
@@ -46,10 +60,14 @@
     --pluto-tilt: rotate(122.5deg);
     --pluto-day: 153.3;
     --pluto-color: #c3b6aa;
-    --sun-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/sun.jpg);
+    --sun-image: url(../assets/sun-min.jpg);
     --sun-tilt: rotate(0deg);
-    --sun-day: 600;
+    --sun-day: 80;
     --sun-color: #cc9f4c;
+    --moon-image: url(../assets/moon-min.jpg);
+    --moon-tilt: rotate(15deg);
+    --moon-day: 60;
+    --moon-color: #6e7b7c;
   }
 
   //List of planets - used for mixin interation and interpolation
@@ -63,7 +81,8 @@
     "uranus",
     "neptune",
     "pluto",
-    "sun"
+    "sun",
+    "moon"
   );
 
   //Mixin for styling each planet
@@ -99,6 +118,24 @@
 
   .planet {
     @include planetization;
+    /** Yellow glow if sun */
+    &--#{sun} {
+      .planet__atmosphere {
+        transition: box-shadow $transition-medium
+          cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0px 0px 10px 0px var(--sun-color),
+          0px 0px 1000px -2px var(--sun-color);
+      }
+    }
+    &--#{moon} {
+      .planet__atmosphere {
+        transition: box-shadow $transition-medium
+          cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        box-shadow: 0px 0px 10px 0px var(--moon-color),
+          0px 0px 1000px -2px var(--moon-color);
+      }
+    }
     &__atmosphere {
       height: 12rem;
       width: 12rem;
@@ -106,14 +143,7 @@
 
       border-radius: 100px;
       overflow: hidden;
-      --mask: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0,
-          rgba(0, 0, 0, 1) 30%,
-          rgba(0, 0, 0, 0) 75%,
-          rgba(0, 0, 0, 0) 0
-        )
-        100% 50% / 100% 100% repeat-x;
+
       -webkit-mask: var(--mask);
       mask: var(--mask);
       &::before {
@@ -128,6 +158,7 @@
         );
       }
     }
+
     &__surface {
       position: absolute;
       height: 100%;

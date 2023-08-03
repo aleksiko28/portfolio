@@ -1,30 +1,9 @@
 ---
 import "../styles/index.scss"
-import moon from "../assets/moon-min.png"
-import bgGradients from "../assets/gradient-bg.png"
+import DarkModeToggle from "../components/DarkModeToggle.svelte";
 ---
 
-<script>
-
-</script>
-
-<a
-  target="_blank"
-  rel="noreferrer"
-  href="https://github.com/aleksiko28/portfolio/"
-  data-type="link"
-  class="hover interactable info"
->
-  <img
-    class="moon"
-    src={moon.src}
-    alt=""
-  />
-  <img
-    class="github-icon"
-    src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2012/png/iconmonstr-github-1.png&r=0&g=0&b=0"
-  />
-</a>
+<DarkModeToggle client:only />
 <div class="stars">
   <div class="twinkling">
     <div class="clouds">
@@ -33,59 +12,20 @@ import bgGradients from "../assets/gradient-bg.png"
   </div>
 </div>
 
-<div id="gradient"></div>
-<div class="black-gradient"></div>
-<div class="black-gradient reversed"></div>
-<!-- <img id="custom-gradient" src={bgGradients.src} /> -->
+<div class="light-mode-background">
+  <div class="clouds">
+    <div class="blue-haze"></div>
+  </div>
+</div>
+
+<div class="fade-gradient"></div>
+<div class="fade-gradient reversed"></div>
 
 <style lang="scss">
   @import "../styles/index.scss";
 
-  .hover {
-    position: absolute;
-    top: 3rem;
-    right: 3rem;
-    width: 6rem;
-    height: 6rem;
-    z-index: calc($z-index-tooltip + -1);
-    transition: 0.3s all ease;
-    box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
-            inset -70px 0px 50px 0px black,
-            -5px 0px 10px -4px white;
-    border-radius: 50%;
-    &:hover {
-      cursor: pointer;
-      scale: 1.1;
-      rotate: 5deg;
-    }
-  }
-
-  .moon,
-  .github-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    opacity: 0.4;
-  }
-  .github-icon {
-    z-index: 3;
-    filter: invert(60%);
-  }
-
-  .black-gradient {
-  background: linear-gradient(
-        rgba(0, 0, 0, 0.0) 0%,
-        rgba(0, 0, 0, 0.0) 70%,
-
-        rgba(0, 0, 0, 0.2) 80%,
-        rgba(0, 0, 0, 0.7)  90%,
-        rgba(0, 0, 0, 0.9)  95%,
-
-        rgba(0, 0, 0, 1.0)  100%
-      );
+  .fade-gradient {
+  background: var(--background-gradient);
   left: 0;
   z-index: $z-index-background;
   position: absolute;
@@ -98,43 +38,20 @@ import bgGradients from "../assets/gradient-bg.png"
   }
 }
 
-.shape {
+.light-mode-background {
+  transition: opacity $transition-medium ease;
+  opacity: var(--light-bg-opacity);
   position: absolute;
-  top: 225vh;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: $z-index-background;
-}
-
-#custom-gradient {
-  bottom: 0;
+  display: block;
+  top: 0;
+  height: 125vh;
+  min-width: 100%;
   left: 0;
-  z-index: $z-index-background;
-  position: absolute;
-  height: calc(100% - 125vh);
-  width: 100%;
-  opacity: 0.8;
+  background: skyblue;
+  .clouds {
+    filter: invert(100%);
+  }
 }
-
-#gradient {
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  z-index: $z-index-background;
-  position: absolute;
-  height: calc(100% - 125vh);
-  width: 100%;
-  background-color:hsla(257,0%,0%,1);
-  background-color:hsla(257,0%,0%,1);
-background-image: radial-gradient(at 89% 62%, hsla(60,0%,0%,1) 0px, transparent 50%),
-radial-gradient(at 7% 8%, hsla(40,0%,0%,1) 0px, transparent 50%),
-radial-gradient(at 89% 80%, hsla(352,29%,7%,1) 0px, transparent 50%),
-radial-gradient(at 16% 21%, hsla(174,39%,46%,1) 0px, transparent 50%),
-radial-gradient(at 71% 90%, hsla(225,43%,43%,1) 0px, transparent 50%),
-radial-gradient(at 87% 40%, hsla(191,49%,37%,1) 0px, transparent 50%),
-radial-gradient(at 38% 81%, hsla(266,47%,56%,0.82) 0px, transparent 50%);
-}
-
 
 .blue-haze {
   background: rgba(0, 64, 128, 0.1) center / 200px 200px round;
@@ -158,6 +75,8 @@ radial-gradient(at 38% 81%, hsla(266,47%,56%,0.82) 0px, transparent 50%);
 }
 
 .stars {
+  transition: opacity $transition-medium ease;
+  opacity: var(--dark-bg-opacity);
   z-index: 1;
   background: black url("~/assets/stars.png") repeat top center;
   height: 125vh;

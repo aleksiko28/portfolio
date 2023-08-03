@@ -4,13 +4,12 @@ export interface Props {
 }
 
 const { title } = Astro.props
-import "@fontsource/unbounded"
 import favicon from "../assets/favicon.svg"
 import aklogo from "../assets/aklogo128.png"
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -29,6 +28,9 @@ import aklogo from "../assets/aklogo128.png"
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script defer src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <slot />

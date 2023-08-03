@@ -25,7 +25,7 @@
       height: 0.75rem;
       background: gray;
       &.filled {
-        background: $accent-gradient;
+        background: var(--accent-gradient);
         background-size: 150%;
       }
     }

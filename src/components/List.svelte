@@ -21,7 +21,7 @@
   .list {
     display: flex;
     flex-direction: column;
-    color: $body-text-color;
+    color: var(--body-text-color);
     gap: $padding-m;
 
     .item {
@@ -34,7 +34,7 @@
       margin: 0;
       text-transform: uppercase;
       font-size: 0.75rem;
-      color: $body-text-color--subtle;
+      color: var(--body-text-color--subtle);
     }
 
     p {

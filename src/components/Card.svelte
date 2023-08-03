@@ -113,7 +113,7 @@
     position: relative;
     text-decoration: none;
     overflow: hidden;
-    outline: 1px solid $color-border-card;
+    outline: 1px solid var(--color-border-card);
 
     &:hover .title-and-desc {
       bottom: 0;
@@ -128,7 +128,7 @@
     font-size: 0.75rem;
     line-height: 1.5;
     margin: 0;
-    color: $body-text-color;
+    color: var(--body-text-color);
   }
 
   /* the important bits */
@@ -148,7 +148,7 @@
     top: 0;
     left: 0;
     pointer-events: none;
-    background-color: $card-info-background-color;
+    background-color: var(--card-info-background-color);
   }
 
   .in-top {

@@ -47,14 +47,14 @@
       min-width: 4rem;
       align-items: flex-end;
       .text {
-        color: $subtle-body-text-color;
+        color: var(--subtle-body-text-color);
         margin: 0;
         width: 100%;
         text-align: end;
       }
       .circle {
         position: absolute;
-        background: $accent-gradient;
+        background: var(--accent-gradient);
         border-radius: 50%;
         top: 6px;
         left: calc(100% + 1.5rem - 4px);

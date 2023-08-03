@@ -34,10 +34,10 @@
   h2 {
     padding-left: 2rem;
     font-size: 3rem;
-    color: white;
-    font-weight: 800;
+    transition: all $transition-medium ease;
+    color: var(--body-text-color);
+    font-weight: 400;
     margin: 0;
-    font-weight: 800;
   }
 
   h2 {
@@ -54,16 +54,16 @@
     opacity: 0;
   }
 
+  .first-row {
+    @include title-text;
+  }
+
   .second-row {
-    color: gray;
+    color: var(--body-text-color);
     animation: fadeInTwo 1.5s ease forwards;
     -webkit-animation: fadeInTwo 1.5s ease forwards;
     animation-delay: 1s;
     -webkit-animation-delay: 1s;
-    background: -webkit-linear-gradient(white, #38495a);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .down-arrow {

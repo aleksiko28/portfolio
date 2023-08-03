@@ -50,7 +50,7 @@
   .progress-bar {
     height: 0.075rem;
     width: 100%;
-    background: $body-text-color;
+    background: var(--body-text-color);
     opacity: 0;
     border-radius: $border-radius-pill;
   }

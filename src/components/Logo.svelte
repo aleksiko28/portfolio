@@ -95,7 +95,7 @@
   .logo {
     width: 5rem;
     height: 5rem;
-    background: $accent-gradient;
+    background: var(--accent-gradient);
     transition: background-position 0.5s ease;
     background-size: 200%;
     display: flex;

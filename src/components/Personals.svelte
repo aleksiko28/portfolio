@@ -90,7 +90,7 @@
           .icon-text {
             display: flex;
             gap: 0.75rem;
-            color: gray;
+            color: var(--subtitle-color);
           }
 
           h3 {
@@ -101,8 +101,8 @@
           width: 5rem;
           height: 5rem;
           border-radius: 50%;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          background-color: $background-color-button;
+          border: 1px solid var(--color-border-card);
+          background-color: var(--background-color-button);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
         }
@@ -134,7 +134,7 @@
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        color: $primary-color;
+        color: var(--primary-color);
 
         .social-buttons {
           display: flex;
@@ -166,7 +166,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: $secondary-color;
+            color: var(--secondary-color);
           }
         }
       }
