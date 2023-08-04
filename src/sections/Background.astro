@@ -1,6 +1,7 @@
 ---
 import "../styles/index.scss"
 import DarkModeToggle from "../components/DarkModeToggle.svelte";
+import Waves from "../components/Waves.svelte";
 ---
 
 <DarkModeToggle client:only />
@@ -47,7 +48,7 @@ import DarkModeToggle from "../components/DarkModeToggle.svelte";
   height: 125vh;
   min-width: 100%;
   left: 0;
-  background: skyblue;
+  background: linear-gradient(0deg, rgba(0,172,193,.2) 0%, skyblue 60%, rgba(10,50,120,1) 100%);
   .clouds {
     filter: invert(100%);
   }

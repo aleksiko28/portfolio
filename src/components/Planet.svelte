@@ -123,8 +123,15 @@
       .planet__atmosphere {
         transition: box-shadow $transition-medium
           cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        box-shadow: 0px 0px 10px 0px var(--sun-color),
-          0px 0px 1000px -2px var(--sun-color);
+        box-shadow: 0px 0px 20px 0px var(--sun-color),
+          0px 0px 1000px -20px var(--sun-color);
+        &:before {
+          box-shadow: 0px 0px 20px 0px var(--sun-color),
+            0px 0px 1000px -20px var(--sun-color);
+        }
+      }
+      .planet__surface {
+        background: radial-gradient(lightyellow, yellow);
       }
     }
     &--#{moon} {

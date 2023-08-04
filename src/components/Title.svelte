@@ -1,13 +1,16 @@
 <script lang="ts">
   import arrow from "../assets/up-arrow.png"
+  import Signature from "./Signature.svelte"
 </script>
 
 <div class="title-page">
   <div class="header">
     <h1 class="first-row tracking-in-expand">Hello.</h1>
     <h1 class="second-row">
-      My name is
-      <span class="text-gradient">Aleksi Koivu</span>
+      <span>My name is</span>
+      <span class="signature">
+        <Signature />
+      </span>
     </h1>
   </div>
   <a class="down-arrow fade-in-bottom" href="#about">
@@ -32,7 +35,6 @@
   }
   h1,
   h2 {
-    padding-left: 2rem;
     font-size: 3rem;
     transition: all $transition-medium ease;
     color: var(--body-text-color);
@@ -46,7 +48,9 @@
   }
   .header {
     display: flex;
+    position: relative;
     flex-direction: column;
+    padding-left: 1rem;
   }
 
   .first-row,
@@ -55,15 +59,24 @@
   }
 
   .first-row {
-    @include title-text;
+    color: var(--accent);
   }
 
   .second-row {
-    color: var(--body-text-color);
+    position: relative;
+    top: 100%;
+    color: var(--subtitle-color);
     animation: fadeInTwo 1.5s ease forwards;
     -webkit-animation: fadeInTwo 1.5s ease forwards;
     animation-delay: 1s;
     -webkit-animation-delay: 1s;
+    margin-right: 20rem;
+    .signature {
+      position: absolute;
+      width: 20rem;
+      left: calc(100% + 1rem);
+      bottom: -0.5rem;
+    }
   }
 
   .down-arrow {
@@ -157,6 +170,16 @@
       -webkit-transform: translateY(0);
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .second-row {
+      margin-right: 0;
+      .signature {
+        left: 0;
+        top: calc(100% + 1rem);
+      }
     }
   }
 

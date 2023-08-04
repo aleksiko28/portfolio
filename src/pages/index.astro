@@ -48,15 +48,16 @@ import "../styles/index.scss"
 
 <Layout title="Aleksi Koivu" />
 
-<MouseTrailer client:only />
-
 <div style="min-height: 125vh">
   <Background />
 </div>
 <main>
   <Header client:only />
   <div class="content">
-    <Title />
+    <!-- ensure title takes full height -->
+    <div style="min-height: 100vh">
+      <Title client:only />
+    </div>
     <div class="section-wrapper">
       <SectionTitle planet="earth" title="About" subtitle="Personal and contact information" />
       <div class="personal-grid">
@@ -97,6 +98,12 @@ import "../styles/index.scss"
 
 <style lang="scss">
   @import "../styles/index.scss";
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   html {
     scroll-padding-top: 80px; /* height of sticky header */
