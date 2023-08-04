@@ -182,7 +182,9 @@
 
 <style lang="scss">
   path {
+    transform: translateZ(0);
     filter: drop-shadow(1px 1px 4px var(--signature-color));
+    -webkit-filter: drop-shadow(1px 1px 4px var(--signature-color));
     color: var(--signature-color);
   }
 

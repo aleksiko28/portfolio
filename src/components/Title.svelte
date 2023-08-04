@@ -176,6 +176,7 @@
   @media only screen and (max-width: 600px) {
     .second-row {
       margin-right: 0;
+      margin-bottom: 5rem;
       .signature {
         left: 0;
         top: calc(100% + 1rem);
