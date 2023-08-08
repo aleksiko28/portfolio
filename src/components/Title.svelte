@@ -1,5 +1,4 @@
 <script lang="ts">
-  import arrow from "../assets/up-arrow.png"
   import Signature from "./Signature.svelte"
 </script>
 
@@ -14,7 +13,7 @@
     </h1>
   </div>
   <a class="down-arrow fade-in-bottom" href="#about">
-    <img src={arrow.src} alt="An arrow pointing down." />
+    <i class="fa-solid fa-arrow-down" />
   </a>
 </div>
 
@@ -82,7 +81,7 @@
   .down-arrow {
     position: absolute;
     bottom: 5%;
-    rotate: 180deg;
+    font-size: 4rem;
     transition: 0.2s all ease;
     &:hover {
       scale: 1.1;

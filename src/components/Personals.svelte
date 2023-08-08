@@ -1,5 +1,5 @@
 <script lang="ts">
-  import portrait from "../assets/portrait.png"
+  import portrait from "../assets/portrait.jpg"
   import Button from "./Button.svelte"
   import List from "./List.svelte"
 
@@ -98,6 +98,7 @@
           }
         }
         .portrait {
+          object-fit: cover;
           width: 5rem;
           height: 5rem;
           border-radius: 50%;
