@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^3.1.0",
+    "@studio-freight/lenis": "^1.0.19",
     "astro": "^2.8.5",
     "gsap": "^3.12.2",
     "node-sass": "^8.0.0",

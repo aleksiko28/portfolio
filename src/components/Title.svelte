@@ -1,5 +1,9 @@
-<script lang="ts">
+<script>
   import Signature from "./Signature.svelte"
+
+  function navigateToAnchor(anchor) {
+    lenis.scrollTo(`#${anchor}`, { offset: -96 })
+  }
 </script>
 
 <div class="title-page">
@@ -12,7 +16,11 @@
       </span>
     </h1>
   </div>
-  <a class="down-arrow fade-in-bottom" href="#about">
+  <a
+    class="down-arrow fade-in-bottom"
+    href="#about"
+    on:click={() => navigateToAnchor("about")}
+  >
     <i class="fa-solid fa-arrow-down" />
   </a>
 </div>

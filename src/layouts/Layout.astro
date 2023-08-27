@@ -5,7 +5,6 @@ export interface Props {
 
 const { title } = Astro.props
 import favicon from "../assets/favicon.svg"
-import aklogo from "../assets/aklogo128.png"
 ---
 
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ import aklogo from "../assets/aklogo128.png"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.aleksikoivu.dev/" />
-    <meta property="og:image" content={aklogo.src} />
+    <meta property="og:image" content={favicon.src} />
     <link rel="icon" type="image/svg+xml" href={favicon.src} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

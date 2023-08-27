@@ -1,6 +1,7 @@
 <script>
   import Logo from "./Logo.svelte"
   import ScrollProgress from "./ScrollProgress.svelte"
+  import Lenis from "@studio-freight/lenis"
 
   let shouldDim = false
   let isOpen = false
@@ -19,30 +20,46 @@
 
   // check initial scroll pos
   checkScroll()
+
+  function navigateToAnchor(anchor) {
+    lenis.scrollTo(`#${anchor}`, { offset: -96 })
+  }
 </script>
 
 <nav class:initialRender class:isOpen class:shouldDim>
   <div class="navbar-content">
     <ul>
-      <a class="anchor" href="#about">
+      <a
+        class="anchor"
+        href="#about"
+        on:click={() => navigateToAnchor("about")}
+      >
         <li>
           <span><i class="fa-regular fa-address-card" /></span>
           <span class="navbar-text">About</span>
         </li>
       </a>
-      <a class="anchor" href="#experience">
+      <a
+        class="anchor"
+        href="#experience"
+        on:click={() => navigateToAnchor("experience")}
+      >
         <li>
           <span><i class="fa-regular fa-star" /></span>
           <span class="navbar-text">Experience</span>
         </li>
       </a>
-      <a class="anchor" href="#work">
+      <a class="anchor" href="#work" on:click={() => navigateToAnchor("work")}>
         <li>
           <span><i class="fa-regular fa-briefcase" /></span>
           <span class="navbar-text">Work</span>
         </li>
       </a>
-      <a class="anchor" href="#education">
+      <a
+        class="anchor"
+        href="#education"
+        on:click={() => navigateToAnchor("education")}
+      >
         <li>
           <span><i class="fa-regular fa-school" /></span>
           <span class="navbar-text">Education</span>

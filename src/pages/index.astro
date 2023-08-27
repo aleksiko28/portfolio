@@ -21,9 +21,12 @@ import SectionTitle from "../components/SectionTitle.svelte"
 import SectionBG from "../components/SectionBG.svelte"
 import Section from "../components/Section.svelte"
 import "../styles/index.scss"
+
 ---
 
 <script>
+  import Lenis from "@studio-freight/lenis"
+
   const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       let elem = entry.target
@@ -44,6 +47,24 @@ import "../styles/index.scss"
   )
   const hiddenElements = document.querySelectorAll(".hidden")
   hiddenElements.forEach((el) => observer.observe(el))
+
+  
+const lenis = new Lenis()
+
+window.lenis = lenis;
+
+//get scroll value
+//lenis.on("scroll", ({ scroll, limit }) => {
+//  console.log({ scroll, limit });
+//});
+
+function raf(time: any) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
 </script>
 
 <Layout title="Aleksi Koivu" />
@@ -107,7 +128,7 @@ import "../styles/index.scss"
 
   html {
     scroll-padding-top: 80px; /* height of sticky header */
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     /** scale everything based on viewport width */
     font-size: clamp(0.75rem, 0.625vw + 0.5625rem, $padding-m);
     box-sizing: border-box;
