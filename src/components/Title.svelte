@@ -1,21 +1,61 @@
 <script>
   import Signature from "./Signature.svelte"
+  import campfire from "../assets/campfire.webp"
+  import campfire2 from "../assets/campfire2.webp"
+
+  import { fade } from "svelte/transition"
+  import { onMount } from "svelte"
 
   function navigateToAnchor(anchor) {
     lenis.scrollTo(`#${anchor}`, { offset: -96 })
   }
+
+  let theme = "dark"
+
+  onMount(async () => {
+    const themeEl = document.getElementsByTagName("html")[0]
+    const attrObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mu) => {
+        if (mu.type === "attributes" && mu.attributeName === "data-theme") {
+          theme = themeEl.dataset.theme
+        }
+      })
+    })
+    /** Observe if the class ´mo-theme-dark´ is added to DOM tree. */
+    if (themeEl) {
+      attrObserver.observe(themeEl, { attributes: true })
+    }
+  })
 </script>
 
 <div class="title-page">
   <div class="header">
-    <h1 class="first-row tracking-in-expand">Hello.</h1>
-    <h1 class="second-row">
-      <span>My name is</span>
-      <span class="signature">
-        <Signature />
-      </span>
-    </h1>
+    <div class="text-signature">
+      <h1 class="header-text">
+        <span class="first-row tracking-in-expand"> Hello. </span>
+        <span class="second-row">My name is...</span>
+        <span class="signature">
+          <Signature />
+        </span>
+      </h1>
+    </div>
+    <div class="image-container">
+      {#if theme === "dark"}
+        <img
+          transition:fade={{ delay: 50, duration: 250 }}
+          class="campfire"
+          src={campfire.src}
+        />
+      {:else}
+        <img
+          transition:fade={{ delay: 50, duration: 250 }}
+          class="campfire"
+          src={campfire2.src}
+        />
+      {/if}
+    </div>
   </div>
+
   <a
     class="down-arrow fade-in-bottom"
     href="#about"
@@ -31,10 +71,36 @@
     position: relative;
     display: flex;
     height: 100vh;
-    gap: 2rem;
     align-items: center;
     justify-content: center;
     margin-bottom: 5rem;
+
+    .image-container {
+      display: grid;
+      overflow: hidden;
+    }
+
+    .campfire {
+      height: 20rem;
+      width: 20rem;
+      grid-column: 1/2;
+      grid-row: 1/2;
+      -webkit-mask-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 45%,
+        rgba(255, 255, 255, 0) 70%,
+        rgba(255, 255, 255, 0) 100%
+      );
+
+      mask-image: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 45%,
+        rgba(255, 255, 255, 0) 70%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
 
     .text-gradient {
       @include gradient-text;
@@ -42,7 +108,7 @@
   }
   h1,
   h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     transition: all $transition-medium ease;
     color: var(--body-text-color);
     font-weight: 400;
@@ -55,9 +121,24 @@
   }
   .header {
     display: flex;
-    position: relative;
-    flex-direction: column;
-    padding-left: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 3rem;
+    width: 100%;
+
+    .header-text {
+      display: flex;
+      width: max-content;
+      flex-direction: column;
+    }
+    .text-signature {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      align-items: flex-start;
+    }
   }
 
   .first-row,
@@ -70,20 +151,12 @@
   }
 
   .second-row {
-    position: relative;
     top: 100%;
     color: var(--subtitle-color);
     animation: fadeInTwo 1.5s ease forwards;
     -webkit-animation: fadeInTwo 1.5s ease forwards;
     animation-delay: 1s;
     -webkit-animation-delay: 1s;
-    margin-right: 20rem;
-    .signature {
-      position: absolute;
-      width: 20rem;
-      left: calc(100% + 1rem);
-      bottom: -0.5rem;
-    }
   }
 
   .down-arrow {
@@ -180,20 +253,17 @@
     }
   }
 
-  @media only screen and (max-width: 600px) {
-    .second-row {
-      margin-right: 0;
-      margin-bottom: 5rem;
-      .signature {
-        left: 0;
-        top: calc(100% + 1rem);
-      }
-    }
-  }
-
   @media only screen and (max-width: 400px) {
-    .down-arrow {
-      bottom: 15%;
+    .title-page {
+      .down-arrow {
+        bottom: 5%;
+      }
+      .header {
+        .campfire {
+          width: 15rem;
+          height: 15rem;
+        }
+      }
     }
   }
 </style>

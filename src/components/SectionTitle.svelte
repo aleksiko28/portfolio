@@ -64,11 +64,12 @@
       .title {
         text-align: center;
         text-transform: uppercase;
-        font-size: 3.5rem;
+        font-size: 3rem;
         padding-top: 1.5rem;
         background: linear-gradient(transparent 0%, black 50%);
         line-height: 1;
         @include title-text;
+        font-family: $header-font;
       }
 
       .subtitle {

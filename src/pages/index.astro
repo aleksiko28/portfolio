@@ -51,12 +51,8 @@ import "../styles/index.scss"
   
 const lenis = new Lenis()
 
+// @ts-expect-error
 window.lenis = lenis;
-
-//get scroll value
-//lenis.on("scroll", ({ scroll, limit }) => {
-//  console.log({ scroll, limit });
-//});
 
 function raf(time: any) {
   lenis.raf(time);
@@ -127,10 +123,10 @@ requestAnimationFrame(raf);
   }
 
   html {
-    scroll-padding-top: 80px; /* height of sticky header */
+    scroll-padding-top: 80px; /* eight of sticky header */
     scroll-behavior: auto;
     /** scale everything based on viewport width */
-    font-size: clamp(0.75rem, 0.625vw + 0.5625rem, $padding-m);
+    font-size: clamp(1rem, 0.9107rem + 0.2381vw, 1.125rem);
     box-sizing: border-box;
   }
 

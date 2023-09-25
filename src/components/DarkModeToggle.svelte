@@ -62,8 +62,8 @@
 
   .dark-mode-toggle {
     position: absolute;
-    top: 3rem;
-    right: 3rem;
+    top: 1rem;
+    right: 1rem;
     width: 12rem;
     height: 12rem;
     z-index: calc($z-index-tooltip + -1);
@@ -96,6 +96,14 @@
         transform: translate(-50%, 1rem);
         opacity: 1;
       }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .dark-mode-toggle {
+      transform: scale(0.75);
+      top: 0;
+      right: 0;
     }
   }
 </style>

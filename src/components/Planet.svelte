@@ -148,7 +148,7 @@
       width: 12rem;
       position: relative;
 
-      border-radius: 100px;
+      border-radius: 50%;
       overflow: hidden;
 
       -webkit-mask: var(--mask);
