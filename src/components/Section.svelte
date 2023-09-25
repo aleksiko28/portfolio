@@ -44,7 +44,7 @@
       bottom: -10rem;
       width: 100%;
       left: 0;
-      background: url("../assets/noise.webp") repeat,
+      background: url("../assets/background/noise.webp") repeat,
         linear-gradient(83.21deg, var(--primary) 0%, var(--secondary) 100%);
       background-blend-mode: overlay;
       -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);

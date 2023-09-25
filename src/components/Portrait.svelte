@@ -1,5 +1,5 @@
 <script>
-  import portrait from "../assets/portrait.png"
+  import portrait from "../assets/personal/portrait.png"
   import Planet from "./Planet.svelte"
 </script>
 

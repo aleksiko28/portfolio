@@ -79,19 +79,19 @@ import Waves from "../components/Waves.svelte";
   transition: opacity $transition-medium ease;
   opacity: var(--dark-bg-opacity);
   z-index: 1;
-  background: black url("~/assets/stars.png") repeat top center;
+  background: black url("~/assets/background/stars.png") repeat top center;
   height: 125vh;
 }
 
 .twinkling {
   z-index: 1;
-  background: transparent url("~/assets/twinkle-mask.png") repeat top center;
+  background: transparent url("~/assets/background/twinkle-mask.png") repeat top center;
   animation: move-twinkle-back 350s linear infinite;
 }
 
 .clouds {
   z-index: 2;
-  background: transparent url("~/assets/clouds.png") repeat top center;
+  background: transparent url("~/assets/background/clouds.png") repeat top center;
   animation: move-clouds-back 200s linear infinite;
 }
 

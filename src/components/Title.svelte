@@ -1,7 +1,7 @@
 <script>
   import Signature from "./Signature.svelte"
-  import campfire from "../assets/campfire.webp"
-  import campfire2 from "../assets/campfire2.webp"
+  import campfire from "../assets/personal/campfire.webp"
+  import campfireDay from "../assets/personal/campfire-day.webp"
 
   import { fade } from "svelte/transition"
   import { onMount } from "svelte"
@@ -50,7 +50,7 @@
         <img
           transition:fade={{ delay: 50, duration: 250 }}
           class="campfire"
-          src={campfire2.src}
+          src={campfireDay.src}
         />
       {/if}
     </div>

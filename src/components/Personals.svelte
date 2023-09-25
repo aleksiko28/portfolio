@@ -1,5 +1,5 @@
-<script lang="ts">
-  import portrait from "../assets/portrait.jpg"
+<script>
+  import Portrait from "../assets/personal/portrait.webp"
   import Button from "./Button.svelte"
   import List from "./List.svelte"
 
@@ -15,7 +15,7 @@
     <div class="contacts">
       <div class="top-container">
         <div class="portrait-and-info">
-          <img class="portrait" src={portrait.src} alt="Portrait" />
+          <img class="portrait" src={Portrait.src} alt="Portrait" />
           <div class="top-info">
             <h3>Aleksi Koivu</h3>
             <span class="icon-text">
