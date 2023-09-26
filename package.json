@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^3.1.0",
+    "@fontsource/raleway": "^5.0.8",
     "@fontsource/unbounded": "^5.0.12",
     "@studio-freight/lenis": "^1.0.19",
     "astro": "^2.8.5",
