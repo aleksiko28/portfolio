@@ -88,7 +88,7 @@ of Simple CSS Waves-->
   }
 
   .inner-header {
-    height: 80vh;
+    height: 80dvh;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -105,7 +105,7 @@ of Simple CSS Waves-->
   .waves {
     position: relative;
     width: 100%;
-    height: 15vh;
+    height: 15dvh;
     margin-bottom: -7px; /*Fix for safari gap*/
     min-height: 100px;
     max-height: 150px;
@@ -113,7 +113,7 @@ of Simple CSS Waves-->
 
   .content {
     position: relative;
-    height: 20vh;
+    height: 20dvh;
     text-align: center;
     background-color: white;
   }
@@ -154,7 +154,7 @@ of Simple CSS Waves-->
       min-height: 40px;
     }
     .content {
-      height: 30vh;
+      height: 30dvh;
     }
     h1 {
       font-size: 24px;

@@ -70,7 +70,7 @@
   .title-page {
     position: relative;
     display: flex;
-    height: 100vh;
+    height: 100dvh;
     align-items: center;
     justify-content: center;
     margin-bottom: 5rem;
