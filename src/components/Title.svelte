@@ -161,7 +161,7 @@
 
   .down-arrow {
     position: absolute;
-    bottom: 5%;
+    bottom: 3dvh;
     font-size: 4rem;
     transition: 0.2s all ease;
     &:hover {
@@ -256,12 +256,12 @@
   @media only screen and (max-width: 400px) {
     .title-page {
       .down-arrow {
-        bottom: 5%;
+        bottom: 2dvh;
       }
       .header {
         .campfire {
-          width: 15rem;
-          height: 15rem;
+          width: 12rem;
+          height: 12rem;
         }
       }
     }
