@@ -259,6 +259,7 @@
         bottom: 2dvh;
       }
       .header {
+        gap: 1rem;
         .campfire {
           width: 12rem;
           height: 12rem;
